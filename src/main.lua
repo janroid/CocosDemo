@@ -8,18 +8,8 @@ cc.Director:getInstance():getScheduler():scheduleScriptFunc(breakSocketHandle ,0
 require("config")
 require("cocos.init")
 
-local result,mobdebug =  pcall(require,"mobdebug")
-local res,PcConfig =  pcall(require,"PcConfig")
-local target = cc.Application:getInstance():getTargetPlatform()
-if (target == cc.PLATFORM_OS_ANDROID or target == cc.PLATFORM_OS_IPHONE) and result and res then
-    mobdebug.start(PcConfig.IP)
-end
-
 local function main()  
-    require("GameInit")
-    require("Error")
-
-    init_load()
+    
 end
 
 
