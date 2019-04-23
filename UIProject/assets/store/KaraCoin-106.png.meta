@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "692fa134-9019-4ccf-b109-68bc45a120ad",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "KaraCoin-106": {
+      "ver": "1.0.3",
+      "uuid": "2fded77b-ed39-4603-a757-dadc94bfbcb6",
+      "rawTextureUuid": "692fa134-9019-4ccf-b109-68bc45a120ad",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 19,
+      "trimY": 19,
+      "width": 62,
+      "height": 61,
+      "rawWidth": 100,
+      "rawHeight": 100,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,54 @@
+//
+// Prefix header for all source files of the 'simulator' target in the 'simulator' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+    #import "NSObject+Extension.h"
+
+#endif
+
+
+#ifdef __OBJC__
+
+typedef NSString * const IPKConstString;
+
+typedef void(^IPKHandleBridge)(id _Nullable resultData);
+//LOGIN_VER
+typedef NS_ENUM(NSInteger,IPKArea) {
+    IPKAreaFB_ZW = 1, /**< 繁体 = 1 */
+    IPKAreaFB_TL = 3, /**< 泰语 = 3 */
+    IPKAreaFB_AR = 4, /**< 阿语 = 4 */
+    IPKAreaFB_FR = 5, /**< 法语 = 5 */
+    IPKAreaFB_ID = 8, /**< 印尼 = 8 */
+    IPKAreaFB_VN = 9, /**< 越南 = 9 */
+};
+
+// 安全回调IPKHandleBridge类型的block
+#ifndef IPKSafeCallHandleBridge
+#define IPKSafeCallHandleBridge(handle,resultData) {\
+    if (handle) { handle(resultData); }\
+};
+#endif
+
+/**
+ * 常量宏Extern, etc. IPKEXTERN(int),IPKEXTERN(NSString *)
+ * type 类型
+ */
+#define IPKEXTERN(type)  UIKIT_EXTERN type const
+#define IPKEXTERN_STRING IPKEXTERN(IPKConstString)
+
+/// 构建弱引用对象宏
+#ifndef weakSelf
+#define weakSelf(obj) __weak __typeof(*(&obj))weakSelf = obj;
+#endif
+
+///只在调试状态下输出信息
+#ifdef DEBUG_MODE
+#define NSLog(format, ...) NSLog((@"%s [line:%d] " format), __func__, __LINE__, ##__VA_ARGS__);
+#else
+#define NSLog(format, ... )
+#endif
+
+#endif

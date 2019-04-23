@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>uploadBitcode</key>
+	<false/>
+	<key>compileBitcode</key>
+	<false/>
+	<key>method</key>
+	<string>ad-hoc</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.coalaa.itexashk</key>
+		<string>hk_adhoc</string>
+		<key>com.coalaa.itexasvn</key>
+		<string>vn_adhoc</string>
+		<key>com.coalaa.itexasid</key>
+		<string>id_adhoc</string>
+		<key>com.coalaa.itexasth</key>
+		<string>th_adhoc</string>
+		<key>com.funplus.pokerar</key>
+		<string>ar_adhoc</string>
+		<key>com.funplus.pokerfr</key>
+		<string>fr_adhoc</string>
+	</dict>
+</dict>
+</plist>

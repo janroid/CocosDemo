@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "dda25cdd-bd4a-44c9-a2e0-4d95651dbff0",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "mail_icon_big": {
+      "ver": "1.0.3",
+      "uuid": "8c9ff50d-b402-4b06-871e-f8b40c217614",
+      "rawTextureUuid": "dda25cdd-bd4a-44c9-a2e0-4d95651dbff0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 105,
+      "height": 80,
+      "rawWidth": 105,
+      "rawHeight": 80,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

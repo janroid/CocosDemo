@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "788e8bae-107a-4e7b-b932-4e4224386012",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "room-bet-chip-bg": {
+      "ver": "1.0.3",
+      "uuid": "9dc63144-cecc-49c1-869e-a759c1b25b91",
+      "rawTextureUuid": "788e8bae-107a-4e7b-b932-4e4224386012",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 72,
+      "height": 20,
+      "rawWidth": 72,
+      "rawHeight": 20,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 11,
+      "borderRight": 11,
+      "subMetas": {}
+    }
+  }
+}

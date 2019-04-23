@@ -1,0 +1,19 @@
+<resources>
+    <string name="sorry_checkoutpay">對不起，您所在的地區不支持該支付！</string>
+    <string name="pay_checkout_hint">正在支付，請稍候！</string>
+
+    <!-- FaceBook 配置start -->
+    <!--release-->
+    <!--<string name="facebook_app_id">125923340927290</string>-->
+    <!--<string name="fb_login_protocol_scheme">fb125923340927290</string>-->
+    <!--debug-->
+    <!--<string name="facebook_app_id">217224151640654</string>-->
+    <!--<string name="fb_login_protocol_scheme">fb217224151640654</string>-->
+    <!-- FaceBook 配置end-->
+    <string name="help">幫助</string>
+    <string name="quit">退出</string>
+    <string name="setting">設置</string>
+    <string name="phone_permission_reject_desc">當前應用缺少訪問存儲空間的許可權，請點擊\"設置\"-\"許可權\"-打開所需許可權。</string>
+    <string name="storage_permission_reject_desc">當前應用缺少必要的許可權，請點擊\"設置\"-\"許可權\"-打開所需許可權。</string>
+    <string name="camera_permission_reject_desc">拒絕該許可權您將無法使用使用相機！</string>
+</resources>

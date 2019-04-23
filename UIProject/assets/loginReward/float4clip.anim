@@ -1,0 +1,33 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "float4clip",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 4,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "props": {
+      "y": [
+        {
+          "frame": 0,
+          "value": 9.5
+        },
+        {
+          "frame": 1.5,
+          "value": 18
+        },
+        {
+          "frame": 3.5166666666666666,
+          "value": 7
+        },
+        {
+          "frame": 4,
+          "value": 9.5
+        }
+      ]
+    }
+  },
+  "events": []
+}

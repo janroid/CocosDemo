@@ -1,0 +1,410 @@
+import org.gradle.internal.os.OperatingSystem;
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
+    flavorDimensions "language"
+
+    defaultConfig {
+        minSdkVersion PROP_MIN_SDK_VERSION
+        targetSdkVersion PROP_TARGET_SDK_VERSION
+
+        externalNativeBuild {
+            if (PROP_BUILD_TYPE == 'ndk-build') {
+                ndkBuild {
+                    targets 'cocos2dlua'
+                    arguments 'NDK_TOOLCHAIN_VERSION=clang'
+                    arguments '-j' + Runtime.runtime.availableProcessors()
+                }
+            }
+            else if (PROP_BUILD_TYPE == 'cmake') {
+                cmake {
+                    arguments "-DCMAKE_FIND_ROOT_PATH=", "-DANDROID_STL=c++_static", "-DANDROID_TOOLCHAIN=clang", "-DANDROID_ARM_NEON=TRUE", \
+                              "-DUSE_CHIPMUNK=TRUE", "-DUSE_BULLET=TRUE", "-DBUILD_LUA_LIBS=TRUE"
+                    cppFlags "-frtti -fexceptions"
+                    // prebuilt root must be defined as a directory which you have right to access or create if you use prebuilt
+                    // set "-DGEN_COCOS_PREBUILT=ON" and "-DUSE_COCOS_PREBUILT=OFF" to generate prebuilt,  this way build cocos2d-x libs
+                    // set "-DGEN_COCOS_PREBUILT=OFF" and "-DUSE_COCOS_PREBUILT=ON" to use prebuilt, this way not build cocos2d-x libs
+                    //arguments "-DCOCOS_PREBUILT_ROOT=/Users/laptop/cocos-prebuilt"
+                    //arguments "-DGEN_COCOS_PREBUILT=OFF", "-DUSE_COCOS_PREBUILT=OFF"
+                }
+            }
+        }
+
+        ndk {
+            abiFilters = []
+            abiFilters.addAll(PROP_APP_ABI.split(':').collect{it as String})
+        }
+    }
+
+    sourceSets.main {
+        java.srcDir "src"
+        java.srcDir "assets/src"
+        res.srcDir "res"
+        jniLibs.srcDir "libs"
+        manifest.srcFile "AndroidManifest.xml"
+        assets.srcDir "assets"
+    }
+
+    externalNativeBuild {
+        if (PROP_BUILD_TYPE == 'ndk-build') {
+            ndkBuild {
+                path "jni/Android.mk"
+            }
+        }
+        else if (PROP_BUILD_TYPE == 'cmake') {
+            cmake {
+                path "../../../../CMakeLists.txt"
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            if (project.hasProperty("RELEASE_STORE_FILE")) {
+                storeFile file(RELEASE_STORE_FILE)
+                storePassword RELEASE_STORE_PASSWORD.toString()
+                keyAlias RELEASE_KEY_ALIAS.toString()
+                keyPassword RELEASE_KEY_PASSWORD.toString()
+            }
+        }
+       release {
+            if (project.hasProperty("RELEASE_STORE_FILE")) {
+                storeFile file(RELEASE_STORE_FILE)
+                storePassword RELEASE_STORE_PASSWORD.toString()
+                keyAlias RELEASE_KEY_ALIAS.toString()
+                keyPassword RELEASE_KEY_PASSWORD.toString()
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (project.hasProperty("RELEASE_STORE_FILE")) {
+                signingConfig signingConfigs.release
+            }
+
+            externalNativeBuild {
+                ndkBuild {
+                    arguments 'NDK_DEBUG=0'
+                }
+            }
+        }
+
+        debug {
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+            if (project.hasProperty("RELEASE_STORE_FILE")) {
+                signingConfig signingConfigs.debug
+            }
+            externalNativeBuild {
+                ndkBuild {
+                    arguments 'NDK_DEBUG=1'
+                }
+            }
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+
+    productFlavors {
+        zh {
+            applicationId 'com.coalaa.itexaspro.cn'
+            buildConfigField "int", "LOGIN_VER", "1"
+            dimension "language"
+            versionName '5.0.0'
+            versionCode 5000000
+            resValue "string", "app_name","德州撲克中文版"
+            manifestPlaceholders = [
+                    ic_launcher: "@mipmap/ic_launcher_zh",
+                    UMENG_KEY: "5c81e00e3fc195fcd500139e",
+                    lan:"zh"
+            ]
+        }
+        vn {//越南
+            applicationId 'air.com.coalaa.itexasvn'
+            buildConfigField "int", "LOGIN_VER", "9"
+            dimension "language"
+            versionName '5.0.0'
+            versionCode 5000000
+            resValue "string", "app_name","Poker_Pro.VN"
+            manifestPlaceholders = [
+                    ic_launcher: "@mipmap/ic_launcher_vn",
+                    UMENG_KEY: "5caac48d0cafb231a0001488",
+                    lan:"vn"
+            ]
+        }
+        id1 {//印尼1
+            applicationId 'air.com.coalaa.itexasid'
+            buildConfigField "int", "LOGIN_VER", "8"
+            dimension "language"
+            versionName '4.2.2'
+            versionCode 10
+            resValue "string", "app_name", "Texas_Poker.ID"
+        }
+        id2 {//印尼2
+            applicationId 'com.coalaa.itexaspro.id'
+            buildConfigField "int", "LOGIN_VER", "8"
+            dimension "language"
+            versionName '4.2.3'
+            versionCode 10
+            resValue "string", "app_name", "Poker_Pro.ID"
+        }
+        ar {//阿语
+            applicationId 'air.com.coalaa.itexasar'
+            buildConfigField "int", "LOGIN_VER", "4"
+            dimension "language"
+            versionName '4.2.1'
+            versionCode 10
+            resValue "string", "app_name", "بوكر_تكساس_الاحترافية"
+        }
+        th {//泰语
+            applicationId 'air.com.coalaa.itexasth'
+            buildConfigField "int", "LOGIN_VER", "3"
+            dimension "language"
+            versionName '4.2.0'
+            versionCode 10
+            resValue "string", "app_name", "ไพ่เท็กซัสไทย"
+        }
+        fr {//法语
+            applicationId 'air.com.coalaa.itexasfr'
+            buildConfigField "int", "LOGIN_VER", "5"
+            dimension "language"
+            versionName '4.2.0'
+            versionCode 10
+            resValue "string", "app_name", "Poker Pro.FR"
+        }
+    }
+}
+
+def getCocosCommandPath() {
+    if (OperatingSystem.current().isWindows()) {
+        return 'cocos.bat'
+    }
+    else {
+        // on unix like system, can not get environments variables easily
+        // so run a shell script to get environment variable sets by cocos2d-x setup.py
+        new ByteArrayOutputStream().withStream { os ->
+            def result = exec {
+                executable = project.file('get_environment.sh')
+                standardOutput = os
+            }
+            ext.console_path = os.toString().trim()
+        }
+        return new File(console_path + '/cocos').absolutePath;
+    }
+}
+
+// a method used to invoke the cocos luacompile command
+def compileLua(srcDir, dstDir, doCompile, is64bit, doEncrypt) {
+    def compileArgs = ['luacompile', '-s', srcDir, '-d', dstDir]
+    if (!doCompile) {
+        compileArgs << '--disable-compile'
+    }
+    else if (is64bit) {
+        compileArgs << '--bytecode-64bit'
+    }
+
+    if (doEncrypt) {
+        compileArgs << '-e'
+        compileArgs << '-k'
+        compileArgs << project.property('PROP_LUA_ENCRYPT_KEY')
+        compileArgs << '-b'
+        compileArgs << project.property('PROP_LUA_ENCRYPT_SIGN')
+    }
+
+    // commandLine compileArgs
+    println 'running command : ' + 'cocos ' + compileArgs.join(' ')
+    exec {
+        // if you meet problem, just replace `getCocosCommandPath()` to the path of cocos command
+        executable getCocosCommandPath()
+        args compileArgs
+    }
+
+    // remove the lua files in dstDir
+    delete fileTree(dstDir) {
+        include '**/*.lua'
+    }
+}
+
+android.applicationVariants.all { variant ->
+    def assetsFile = "${buildDir}/intermediates/merged_assets/${variant.name}/merge${variant.name}Assets/out"
+    delete assetsFile
+
+    variant.getMergeAssetsProvider().getOrNull().doLast {
+        // delete previous files first
+        delete assetsFile
+        if (USE_PACK_RES == "true") {
+            copy {
+                from "${buildDir}/../../../../../out"
+                into "${assetsFile}/res"
+            }
+        }else {
+            copy {
+                from "${buildDir}/../../../../../res"
+                into "${assetsFile}/res"
+            }
+
+            copy {
+                from "${buildDir}/../../../../../src"
+                into "${assetsFile}/src"
+            }
+        }
+
+        // copy {
+        //     from "${buildDir}/../../../../cocos2d-x/cocos/scripting/lua-bindings/script"
+        //     into  "${assetsFile}/src/cocos"
+        // }
+
+        // compile & encrypt the scripts if necessary
+//        def compileScript = (variant.name.compareTo('release') == 0)
+//        if (project.hasProperty('PROP_COMPILE_SCRIPT')) {
+//            compileScript = (PROP_COMPILE_SCRIPT.compareTo('1') == 0)
+//        }
+//
+//        def encryptLua = project.hasProperty('PROP_LUA_ENCRYPT') && (PROP_LUA_ENCRYPT.compareTo('1') == 0)
+//        if (compileScript || encryptLua) {
+//            // -1 means not build bytecode
+//            // 0 means build 32bit only
+//            // 1 means build 64bit only
+//            // 2 means build both 32bit & 64bit
+//            def buildType = -1
+//            if (compileScript) {
+//                def need64 = false
+//                def need32 = false
+//                def abis = PROP_APP_ABI.split(':').collect{it as String}
+//                abis.each{ abi->
+//                    if (abi.compareTo('arm64-v8a') == 0) {
+//                        need64 = true
+//                    }
+//                    else
+//                    {
+//                        need32 = true
+//                    }
+//                }
+//
+//                if (need64 && need32) {
+//                    buildType = 2
+//                }
+//                else if (need64) {
+//                    buildType = 1
+//                }
+//                else {
+//                    buildType = 0
+//                }
+//            }
+//
+//            // invoke cocos command to compile & encrypt the lua files
+//            switch (buildType) {
+//                case -1:
+//                    compileLua("${assetsFile}/src",
+//                            "${assetsFile}/src",
+//                            false, false, encryptLua)
+//                    break
+//                case 0:
+//                    compileLua("${assetsFile}/src",
+//                            "${assetsFile}/src",
+//                            true, false, encryptLua)
+//                    break
+//                case 1:
+//                    compileLua("${assetsFile}/src",
+//                            "${assetsFile}/src/64bit",
+//                            true, true, encryptLua)
+//
+//                    // remove the lua files in src dir
+//                    delete fileTree("${assetsFile}/src") {
+//                        include '**/*.lua'
+//                    }
+//                    delete "${assetsFile}/src/cocos"
+//                    break
+//                case 2:
+//                    compileLua("${assetsFile}/src",
+//                            "${assetsFile}/src/64bit",
+//                            true, true, encryptLua)
+//                    compileLua("${assetsFile}/src",
+//                            "${assetsFile}/src",
+//                            true, false, encryptLua)
+//                    break
+//            }
+//        }
+    }
+
+
+    def isDebug = variant.name.contains('Debug')
+    def language
+    if (variant.flavorName.contains("zh")) {// 繁体
+        variant.buildConfigField("String", "appid", isDebug ? '"ipk20001"' : '"ipk10001"')
+        variant.resValue "string", "facebook_app_id", isDebug ? "125923340927290" : "125923340927290"
+        variant.resValue "string", "fb_login_protocol_scheme",isDebug ?"fb125923340927290" :"fb125923340927290"
+        variant.resValue "string", "facebook_contentprovider", (isDebug ? 'com.facebook.app.FacebookContentProvider125923340927290' : 'com.facebook.app.FacebookContentProvider125923340927290')
+        language = "zh"
+    }else if(variant.flavorName.contains("vn")){//越南1
+        variant.buildConfigField("String", "appid", isDebug ? '"ipk20009"' : '"ipk10009"')
+        variant.resValue "string", "facebook_app_id", isDebug ? "659408634070403" : "659408634070403"
+        variant.resValue "string", "fb_login_protocol_scheme", isDebug ? "fb659408634070403" : "fb659408634070403"
+        variant.resValue "string", "facebook_contentprovider", (isDebug ? 'com.facebook.app.FacebookContentProvider659408634070403' : 'com.facebook.app.FacebookContentProvider659408634070403')
+        language = "vn"
+    }else if(variant.flavorName.contains("id1")){//印尼1
+        variant.buildConfigField("String", "appid", isDebug ? '"ipk20008"' : '"ipk10008"')
+        variant.resValue "string", "facebook_app_id", isDebug ?"392632657595704" :"168320106693257"
+        variant.resValue "string", "fb_login_protocol_scheme",isDebug ?"fb392632657595704" :"fb168320106693257"
+        variant.resValue "string", "facebook_contentprovider", (isDebug ? 'com.facebook.app.FacebookContentProvider392632657595704' : 'com.facebook.app.FacebookContentProvider168320106693257')
+        language = "id"
+    }else if(variant.flavorName.contains("id2")){//印尼2
+        variant.buildConfigField("String", "appid", isDebug ? '"ipk21008"' : '"ipk11008"')
+        variant.resValue "string", "facebook_app_id", isDebug ?"392632657595704" :"168320106693257"
+        variant.resValue "string", "fb_login_protocol_scheme",isDebug ?"fb392632657595704" :"fb168320106693257"
+        variant.resValue "string", "facebook_contentprovider",  (isDebug ? 'com.facebook.app.FacebookContentProvider392632657595704' : 'com.facebook.app.FacebookContentProvider168320106693257')
+    }else if(variant.flavorName.contains("ar")) {//阿语
+        variant.buildConfigField("String", "appid", isDebug ? '"ipk20004"' : '"ipk10004"')
+        variant.resValue "string", "facebook_app_id", isDebug ?"377970262396539" :"491031720948569"
+        variant.resValue "string", "fb_login_protocol_scheme",isDebug ?"fb377970262396539" :"fb491031720948569"
+        variant.resValue "string", "facebook_contentprovider", (isDebug ? 'com.facebook.app.FacebookContentProvider377970262396539' : 'com.facebook.app.FacebookContentProvider491031720948569')
+        language = "ar"
+    }else if(variant.flavorName.contains("th")) {//泰语
+        variant.buildConfigField("String", "appid", isDebug ? '"ipk20003"' : '"ipk10003"')
+        variant.resValue "string", "facebook_app_id", isDebug ?"1102742669743125" :"356208994417917"
+        variant.resValue "string", "fb_login_protocol_scheme",isDebug ?"fb1102742669743125" :"fb356208994417917"
+        variant.resValue "string", "facebook_contentprovider", (isDebug ? 'com.facebook.app.FacebookContentProvider1102742669743125' : 'com.facebook.app.FacebookContentProvider356208994417917')
+        language = "tl"
+    }else if(variant.flavorName.contains("fr")) {//法语
+        variant.buildConfigField("String", "appid", isDebug ? '"ipk10005"' : '"ipk20005"')
+        variant.resValue "string", "facebook_app_id", isDebug ?"5642aaebe0f55a06b7007b76" :"5642aac267e58e29670029f2"
+        variant.resValue "string", "fb_login_protocol_scheme",isDebug ?"fb5642aaebe0f55a06b7007b76" :"fb5642aac267e58e29670029f2"
+        variant.resValue "string", "facebook_contentprovider", (isDebug ? 'com.facebook.app.FacebookContentProvider5642aaebe0f55a06b7007b76' : 'com.facebook.app.FacebookContentProvider5642aac267e58e29670029f2')
+        language = "fr"
+    }
+
+    //刪除其它语言icon
+    variant.getMergeResourcesProvider().getOrNull().doLast {
+        def map = [
+                "zh":"mipmap-hdpi_ic_launcher_zh.png.flat",
+                "tl":"mipmap-hdpi_ic_launcher_tl.png.flat",
+                "id":"mipmap-hdpi_ic_launcher_id.png.flat",
+                "vn":"mipmap-hdpi_ic_launcher_vn.png.flat",
+                "ar":"mipmap-hdpi_ic_launcher_ar.png.flat",
+                "fr":"mipmap-hdpi_ic_launcher_fr.png.flat",
+        ]
+        def resFile = "${buildDir}/intermediates/res/merged/zh/debug/"
+        map[language] = null
+        map.values().asList().each {
+            delete resFile + it
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':libcocos2dx')
+    implementation project(':emulator')
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation "com.facebook.android:facebook-android-sdk:$FACEBOOK_SDK_VERSION"
+    implementation 'com.umeng.analytics:analytics:6.1.4'
+}

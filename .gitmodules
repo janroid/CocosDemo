@@ -1,0 +1,3 @@
+[submodule "common_cocos2d-x"]
+	path = common_cocos2d-x
+	url = http://gogit.oa.com/Super-Gus/common_cocos2d-x.git

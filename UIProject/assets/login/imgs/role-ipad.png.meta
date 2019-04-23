@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "eea919f8-596b-4b33-adde-7fb96438a3eb",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "role-ipad": {
+      "ver": "1.0.3",
+      "uuid": "4d5c6ff8-6ab4-44bf-bfa2-971ff2ef20b2",
+      "rawTextureUuid": "eea919f8-596b-4b33-adde-7fb96438a3eb",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -0.5,
+      "trimX": 0,
+      "trimY": 1,
+      "width": 737,
+      "height": 799,
+      "rawWidth": 738,
+      "rawHeight": 800,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
