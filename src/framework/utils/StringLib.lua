@@ -1490,14 +1490,6 @@ string.substitute = function(str,...)
        for i = 1, #arg do
             local repl = tostring(arg[i]);
             local repl2 = string.gsub(repl, "%%", "%%%%");
---            if(repl2 ~= repl) then--检查要替换的字符串里有没有%，有的话就提示
---                EventDispatcher.getInstance():dispatch(UIEvent.s_event, UIEvent.s_cmd.OPEN_DIALOG,
---                {
---                    title = "StringKit.substitute",
---                    message = "data has %:" .. repl,
---                    confirm = "confirm",
---                });
---            end
             ret = string.gsub(ret, "{"..(i - 1).."}", repl2);
         end
     end

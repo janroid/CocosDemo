@@ -9,7 +9,7 @@ local XmlKit = {};
 XmlKit.decode = function(str)
     local ret = nil;
     local flag = xpcall(function()  
-        local xml = require("XmlSimple").newParser();
+        local xml = import(".XmlSimple").newParser();
         local node = xml:ParseXmlText(str);
         if node then
             ret = XmlKit.decodeNode(node);

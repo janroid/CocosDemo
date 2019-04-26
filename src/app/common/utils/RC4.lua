@@ -1,7 +1,6 @@
-local utils = import("framework/utils")
-local bit = utils.BitUtil
-local mathlib = utils.MathLib
-local ArrayKit = utils.ArrayKit
+local bit = require("framework/utils/BitUtil")
+local mathlib = require("framework/utils/MathLib")
+local ArrayKit = require("framework/utils/ArrayKit")
 
 local RC4     = {};
 RC4.sbox = {};

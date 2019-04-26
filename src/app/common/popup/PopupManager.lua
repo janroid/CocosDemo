@@ -89,7 +89,7 @@ function PopupManager:createPop(popupId, ...)
         return nil
     end
     print("PopupManager.createPop, popupId = " .. popupId)
-    local classType = import(self.m_popFiles[popupId].path)[self.m_popFiles[popupId].name]
+    local classType = require(self.m_popFiles[popupId].path)
     if classType then
         local popupObj = classType.new(...)
         popupObj:setPopupId(popupId)

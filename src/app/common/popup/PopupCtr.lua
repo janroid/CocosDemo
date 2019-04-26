@@ -1,4 +1,4 @@
-local ViewCtr = import("framework.scenes").ViewCtr;
+local ViewCtr = require("framework.scenes.ViewCtr");
 local PopupCtr = class("PopupCtr",ViewCtr);
 
 ---配置事件监听函数

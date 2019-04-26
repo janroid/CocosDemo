@@ -1,6 +1,4 @@
-
-local net = import("framework.net")
-local NetManager = net.NetManager
+local NetManager = require("framework.net.NetManager")
 local NativeCall = {}
 
 function NativeCall.lcc_connectToServer(netSocketId,ip,port,protocol)

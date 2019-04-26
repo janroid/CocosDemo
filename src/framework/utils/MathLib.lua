@@ -1,7 +1,7 @@
 --[[
     数学库
 ]]
-local BitUtil = require("Bit");
+local BitUtil = import(".Bit");
 local MathLib = {};
 
 ---根据系统时间初始化随机数种子，让后续的 math.random() 返回更随机的值

@@ -2,7 +2,7 @@
 -- 这类提供AS3对应Vector, Array的对应方法
 -- Vector和Array在ActionScript3中都是数组，不同的是Vector的数组元素是相同类型，Array的数组元素可以是不同类型，
 
-local TableLib = require("TableLib")
+local TableLib = import(".TableLib")
 
 local ArrayKit = {};
 

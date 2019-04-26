@@ -1,5 +1,5 @@
-local NumberLib = require("NumberLib");
-local TableLib = require("TableLib");
+local NumberLib = import(".NumberLib");
+local TableLib = import(".TableLib");
 
 local TimeLib = {};
 

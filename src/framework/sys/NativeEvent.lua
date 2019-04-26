@@ -1,4 +1,4 @@
-local NativeCall = require ".NativeCall"
+local NativeCall = require("NativeCall")
 -- local TableLib = require "framework.utils.TableLib"
 
 local NativeEvent = class()
