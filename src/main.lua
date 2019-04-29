@@ -7,11 +7,11 @@ cc.Director:getInstance():getScheduler():scheduleScriptFunc(breakSocketHandle ,0
 
 require("config")
 require("cocos.init")
-require("app.common.Static")
 
 local function main()  
-    local Scene = require("app.scenes.login.LoginScene")
-    Scene.new()
+    require("GameInit")
+    require("Error")
+    init_load()
 end
 
 

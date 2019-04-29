@@ -1,7 +1,7 @@
 local NetManager = class("NetManager")
 
-local SocketSender = import(".SocketSender")
-local HttpReceive = import(".HttpReceive")
+local SocketSender = import("SocketSender")
+local HttpReceive = import("HttpReceive")
 
 function NetManager:ctor( )
     self.m_socketSender = SocketSender.new()

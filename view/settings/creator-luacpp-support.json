@@ -1,0 +1,7 @@
+{
+  "autoBuild": false,
+  "exportResourceDynamicallyLoaded": false,
+  "exportResourceOnly": true,
+  "path": "D:\\cocos2dx\\project\\cocos2d-x\\RunMouse",
+  "setup": false
+}

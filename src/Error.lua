@@ -13,26 +13,26 @@ cc.exports.showErrormsg = function(msg)
         return    -- 非debug模式下不显示
     end
 
-    local screenSize = cc.Director:getInstance():getOpenGLView():getFrameSize()
+    -- local screenSize = cc.Director:getInstance():getOpenGLView():getFrameSize()
 
-    local scene = cc.Director:getInstance():getNotificationNode()
+    -- local scene = cc.Director:getInstance():getNotificationNode()
 
-    local root = g_NodeUtils:getRootNodeInCreator("creator/common/layout/errorPop.ccreator")
-    scene:add(root)
+    -- local root = g_NodeUtils:getRootNodeInCreator("creator/common/layout/errorPop.ccreator")
+    -- scene:add(root)
 
-    local content = g_NodeUtils:seekNodeByName(root,"content")
-    local closeBtn = g_NodeUtils:seekNodeByName(root,"btn_close")
-    closeBtn:addClickEventListener(function()
-        scene:removeChild(root)
-        root = nil
-    end)
+    -- local content = g_NodeUtils:seekNodeByName(root,"content")
+    -- local closeBtn = g_NodeUtils:seekNodeByName(root,"btn_close")
+    -- closeBtn:addClickEventListener(function()
+    --     scene:removeChild(root)
+    --     root = nil
+    -- end)
 
-    local bg = g_NodeUtils:seekNodeByName(root,"background")
-    bg:addClickEventListener(function()
+    -- local bg = g_NodeUtils:seekNodeByName(root,"background")
+    -- bg:addClickEventListener(function()
         
-    end)
+    -- end)
 
 
-    content:setString(msg)
+    -- content:setString(msg)
 
 end

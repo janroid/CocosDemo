@@ -1,7 +1,7 @@
 local SocketSender = class("SocketSender")
 
-local SocketReceive = import(".SocketReceive")
-local ServerManager = import(".clientServer/ServerManager")
+local SocketReceive = import("SocketReceive")
+local ServerManager = import("clientServer.ServerManager")
 
 function SocketSender:ctor()
     self.m_receive = SocketReceive.new()

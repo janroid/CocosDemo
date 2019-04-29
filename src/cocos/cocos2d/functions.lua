@@ -298,6 +298,7 @@ function import(moduleName, currentModuleName)
                 currentModuleName = v
             end
 
+            currentModuleName = string.gsub( currentModuleName,"/","." )
             currentModuleNameParts = string.split(currentModuleName, ".")
         end
         table.remove(currentModuleNameParts, #currentModuleNameParts)

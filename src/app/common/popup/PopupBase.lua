@@ -111,12 +111,12 @@ function PopupBase:hidden()
 	if self.mCtr and self.mCtr.hidden then
 		self.mCtr:hidden()
 	end
-	g_EventDispatcher:dispatch(g_SceneEvent.POP_HIDDEN,self.m_popupID)
+	g_EventDispatcher:dispatch(g_CustomEvent.POP_HIDDEN,self.m_popupID)
 end
 
 function PopupBase:onCleanup()
 	self:hidden()
-	g_EventDispatcher:dispatch(g_SceneEvent.POP_DESTORY,self.m_popupID)
+	g_EventDispatcher:dispatch(g_CustomEvent.POP_DESTORY,self.m_popupID)
 	if self.m_isretain ~= true then
 		if self.mCtr then
 			self.mCtr:onCleanup()

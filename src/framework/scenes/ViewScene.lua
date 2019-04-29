@@ -10,7 +10,7 @@ ViewScene.s_eventFuncMap = {
 function ViewScene:ctor(app,name)
 	SceneBase.ctor(self,app,name);
 	self:registerEvent();
-    g_EventDispatcher:register(g_SceneEvent.EVENT_BACK,self,self.onKeyBack)
+    g_EventDispatcher:register(g_CustomEvent.EVENT_BACK,self,self.onKeyBack)
 end
 
 function ViewScene:onKeyBack()
@@ -108,7 +108,11 @@ end
 
 ---加载布局文件
 function ViewScene:loadLayout(viewLayout)
-	return g_NodeUtils:getRootNodeInCreator(viewLayout);
+	local root,animManager = g_NodeUtils:getRootNodeInCreator(viewLayout)
+	self.m_root = root
+    self:add(root)
+
+	return animManager
 end
 
 function ViewScene:seekNodeByName(name)

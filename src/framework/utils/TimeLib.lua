@@ -1,5 +1,5 @@
-local NumberLib = import(".NumberLib");
-local TableLib = import(".TableLib");
+local NumberLib = import("NumberLib");
+local TableLib = import("TableLib");
 
 local TimeLib = {};
 

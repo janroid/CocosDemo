@@ -1,6 +1,6 @@
 local ServerManager = class("ServerManager")
 
-local DataCenter = import(".DataCenter")
+local DataCenter = import("DataCenter")
 
 function ServerManager:ctor(receive)
     if not receive then

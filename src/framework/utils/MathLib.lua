@@ -1,8 +1,9 @@
 --[[
     数学库
 ]]
-local BitUtil = import(".Bit");
 local MathLib = {};
+
+local BitUtil = import("Bit");
 
 ---根据系统时间初始化随机数种子，让后续的 math.random() 返回更随机的值
 function MathLib.newrandomseed()

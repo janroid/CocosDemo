@@ -6,7 +6,7 @@
 
 local PopupManager = class("PopupManager")
 
-local popConfig = require("PopupConfig")
+local popConfig = import("PopupConfig")
 
 function PopupManager.getInstance()
     if not PopupManager.s_instance then
@@ -21,9 +21,9 @@ function PopupManager:ctor()
     self.m_showingPopupList = {}
     self.m_popFiles = popConfig.S_FILES
 
-    g_EventDispatcher:register(g_SceneEvent.POP_DESTORY,self,self.onCleanup)
-    g_EventDispatcher:register(g_SceneEvent.POP_HIDDEN,self,self._onHidden)
-    g_EventDispatcher:register(g_SceneEvent.EVENT_BACK,self,self.onEventBack)
+    g_EventDispatcher:register(g_CustomEvent.POP_DESTORY,self,self.onCleanup)
+    g_EventDispatcher:register(g_CustomEvent.POP_HIDDEN,self,self._onHidden)
+    g_EventDispatcher:register(g_CustomEvent.EVENT_BACK,self,self.onEventBack)
 end
 
 function PopupManager:onEventBack()
