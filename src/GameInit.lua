@@ -1,7 +1,7 @@
 
 
 local function gotoLoginScene()
-    local SceneLogin = require("app.scenes.login.LoginScene")
+    local SceneLogin = require("app.scenes.hall.HallScene")
     cc.Director:getInstance():runWithScene(SceneLogin:create(true))
 
 end

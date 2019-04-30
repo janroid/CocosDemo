@@ -3,8 +3,8 @@
        "isLandscape": false,
        "isWindowTop": false,
        "name": "RunMouse",
-       "width": 320,
-       "height": 568,
+       "width": 480,
+       "height": 852,
        "entry": "src/main.lua",
        "consolePort": 6050,
        "uploadPort": 6060
