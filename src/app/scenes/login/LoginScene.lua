@@ -24,15 +24,12 @@ end
 
 function LoginScene:init()
 	self:loadLayout("creator/layout/login.ccreator")
+
+	
 end
 
 function LoginScene:onEnter()
-	-- do something
-	--[[
-		场景被加载显示后被调用，包括第一次加载场景和通过popScene加载场景
-		这个方法可以可以放置相关和场景显示相关变量的初始化代码
-		该方法可以理解为公司引擎：resume方法
-	]]
+	
 	
 end
 

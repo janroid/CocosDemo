@@ -115,8 +115,12 @@ function ViewScene:loadLayout(viewLayout)
 	return animManager
 end
 
-function ViewScene:seekNodeByName(name)
-	return g_NodeUtils:seekNodeByName(self,name)
+function ViewScene:seekNodeByName(view,name)
+	if name then
+		return g_NodeUtils:seekNodeByName(view,name)
+	else
+		return g_NodeUtils:seekNodeByName(self,view)
+	end
 end
 
 --- 触发逻辑处理
