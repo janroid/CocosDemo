@@ -9,15 +9,24 @@ local LoginCtr = class("LoginCtr",ViewCtr);
 
 ---配置事件监听函数
 LoginCtr.s_eventFuncMap =  {
-	-- ["EventKey"] = "FuncName"
-	-- EventKey必须定义在SceneEvent.lua中
-	-- 与UI的通信调用参见ViewCtr.updateView函数
+	[g_CustomEvent.LOGIN_REGISTER] = "reqRegister";
+	[g_CustomEvent.LOGIN_LOGIN] = "reqLogin";
 }
 
-function LoginCtr:ctor()
-	ViewCtr.ctor(self);
+function LoginCtr:ctor(scene)
+	ViewCtr.ctor(self, scene);
 
 	
+end
+
+function LoginCtr:reqRegister(data)
+	Log.d("************************** ",data)
+end
+
+function LoginCtr:reqLogin(data)
+	Log.d("************************** ",data)
+	local hallscene = require('app.scenes.hall.hallScene')
+	cc.Director:getInstance():replaceScene(hallscene:create())
 end
 
 function LoginCtr:onEnter()
@@ -31,14 +40,6 @@ function LoginCtr:onEnter()
 	
 end
 
-function LoginCtr:onEnterTransitionDidFinish()
-	-- do something
-	--[[
-		进入场景过渡动画播放结束时被调用
-		如果场景没有过渡动画，该方法不会被调用
-		不用可删除
-	]]
-end
 
 function LoginCtr:onExit()
 	-- do something
@@ -50,14 +51,6 @@ function LoginCtr:onExit()
 	]]
 end
 
-function LoginCtr:onExitTransitionDidStart()
-	-- do something
-	--[[
-		退出场景动画播放前会被调用
-		如果场景没有过渡动画，该方法不会被调用
-		不用可删除
-	]]
-end
 
 function LoginCtr:onCleanup()
 	-- 如果子类复写父类onCleanup()方法且不调用ViewCtr.onCleanup(self)请加上这个变量赋值，用于网络请求判断该对象是否还需要回调

@@ -53,27 +53,12 @@ end
 ---注册监听事件
 function ViewBase:registerEvent()
 	local obj = self
-	local supers = {obj}
-	while obj.super do
-		supers[#supers + 1] = obj.super
-		obj = obj.super
-	end
-	for i = #supers, 1, -1 do
-		local super = supers[i]
-		if super.s_eventFuncMap then
-			for k,v in pairs(super.s_eventFuncMap) do
-				assert(self[v],"配置的回调函数不存在")
-				g_EventDispatcher:register(k,self,self[v])
-			end
+	if self.s_eventFuncMap then
+		for k,v in pairs(self.s_eventFuncMap) do
+			assert(self[v],"配置的回调函数不存在")
+			g_EventDispatcher:register(k,self,self[v],obj)
 		end
 	end
-end
-
----取消事件监听
-function ViewBase:unRegisterEvent()
-	if g_EventDispatcher then
-		g_EventDispatcher:unRegisterAllEventByTarget(self)
-	end	
 end
 
 ---加载布局文件
@@ -91,5 +76,5 @@ end
 
 --- 触发逻辑处理
 function ViewBase:doLogic(mEvent, ...)
-	g_EventDispatcher:dispatch(mEvent, ...)
+	g_EventDispatcher:dispatchEvent(mEvent, ...)
 end

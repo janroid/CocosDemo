@@ -231,8 +231,6 @@ end
 
 function Node:onCleanup_()
     self:onCleanup()
-    g_HttpManager:cancelRequestByObj(self)
-    g_EventDispatcher:unRegisterAllEventByTarget(self)
     if not self.onCleanupCallback_ then
         return
     end

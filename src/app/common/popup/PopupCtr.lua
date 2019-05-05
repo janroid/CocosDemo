@@ -36,7 +36,7 @@ end
 
 --- 调用UI函数
 function PopupCtr:updateView(mEvent, ...)
-	g_EventDispatcher:dispatch(mEvent, ...)
+	g_EventDispatcher:dispatchEvent(mEvent, ...)
 end
 
 return PopupCtr;

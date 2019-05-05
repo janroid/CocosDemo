@@ -93,13 +93,13 @@ end
 
 function NativeCall.ccl_appPause()
 	print("ccl_appPause")
-	g_EventDispatcher:dispatch(g_CustomEvent.EVENT_APP_PAUSE)
+	g_EventDispatcher:dispatchEvent(g_CustomEvent.APP_PAUSE)
 end
 
 
 function NativeCall.ccl_appResume()
 	print("ccl_appResume")
-	g_EventDispatcher:dispatch(g_CustomEvent.EVENT_APP_RESUME)
+	g_EventDispatcher:dispatchEvent(g_CustomEvent.APP_RESUME)
 end
 
 return NativeCall;

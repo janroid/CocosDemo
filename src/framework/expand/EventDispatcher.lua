@@ -32,8 +32,11 @@ end
 function EventDispatcher:register(event, obj, func, priority)
     self.m_eventObjMap[event] = obj
 
-    local listener = cc.EventListenerCustom:create(event, func)
-    if type(priority) ~= "table" then
+    local listener = cc.EventListenerCustom:create(event, function(event)
+        func(obj, unpack(event._usedata))
+    end)
+    
+    if type(priority) ~= "userdata" then
         self.m_eventDispatcher:addEventListenerWithFixedPriority(listener, priority or 1)
     else
         self.m_eventDispatcher:addEventListenerWithSceneGraphPriority(listener, priority)
@@ -74,6 +77,13 @@ function EventDispatcher:removeAllCustom()
     end
 
     self.m_eventObjMap = {}
+end
+
+function EventDispatcher:removeListenersByTarget(target)
+    if target then
+        self.m_eventDispatcher:removeEventListenersForTarget(target)
+    end
+    
 end
 
 return EventDispatcher

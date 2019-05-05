@@ -28,7 +28,6 @@ function HallCtr:onEnter()
 		该方法可以理解为公司引擎：resume方法
 		不用可删除
 	]]
-	
 end
 
 function HallCtr:onEnterTransitionDidFinish()

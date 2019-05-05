@@ -23,25 +23,24 @@ function HallScene:ctor()
 end
 
 function HallScene:init()
-	self:loadLayout("creator/layout/hall.ccreator")
+	self:loadLayout("creator/layout/hall.ccreator")  
 
-	
+	self.m_btnQuick = self:seekNodeByName("btn_quick")
+
+
+
+	self.m_btnQuick:addClickEventListener(function()
+		
+	end)
+
 end
 
 function HallScene:onEnter()
-	
-	
-end
-
-function HallScene:onEnterTransitionDidFinish()
-	-- do something
-	--[[
-		进入场景过渡动画播放结束时被调用
-		如果场景没有过渡动画，该方法不会被调用
-	]]
+	ViewScene.onEnter(self)
 end
 
 function HallScene:onExit()
+	ViewScene.onExit(self)
 	-- do something
 	--[[
 		退出当前场景时会被调用
@@ -50,13 +49,6 @@ function HallScene:onExit()
 	]]
 end
 
-function HallScene:onExitTransitionDidStart()
-	-- do something
-	--[[
-		退出场景动画播放前会被调用
-		如果场景没有过渡动画，该方法不会被调用
-	]]
-end
 
 function HallScene:onCleanup()
 	ViewScene.onCleanup(self)

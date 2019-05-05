@@ -33,6 +33,7 @@ function TemplateScene:init()
 end
 
 function TemplateScene:onEnter()
+	ViewScene.onEnter(self)
 	-- do something
 	--[[
 		场景被加载显示后被调用，包括第一次加载场景和通过popScene加载场景
@@ -43,6 +44,7 @@ function TemplateScene:onEnter()
 end
 
 function TemplateScene:onEnterTransitionDidFinish()
+	ViewScene.onEnterTransitionDidFinish(self)
 	-- do something
 	--[[
 		进入场景过渡动画播放结束时被调用
@@ -51,6 +53,7 @@ function TemplateScene:onEnterTransitionDidFinish()
 end
 
 function TemplateScene:onExit()
+	ViewScene.onExit(self)
 	-- do something
 	--[[
 		退出当前场景时会被调用
@@ -60,6 +63,7 @@ function TemplateScene:onExit()
 end
 
 function TemplateScene:onExitTransitionDidStart()
+	ViewScene.onExitTransitionDidStart(self)
 	-- do something
 	--[[
 		退出场景动画播放前会被调用
