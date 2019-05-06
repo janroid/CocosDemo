@@ -11,7 +11,7 @@ local LoginCtr = class("LoginCtr",ViewCtr);
 LoginCtr.s_eventFuncMap =  {
 	[g_CustomEvent.LOGIN_REGISTER] = "reqRegister";
 	[g_CustomEvent.LOGIN_LOGIN] = "reqLogin";
-	[g_CustomEvent.LGOIN_RPS_LOGIN] = "onLoginRps";
+	[g_CustomEvent.LOGIN_RPS_LOGIN] = "onLoginRps";
 	[g_CustomEvent.LOGIN_RPS_REGISTER] = "onRegisterRps"
 }
 
@@ -22,15 +22,23 @@ function LoginCtr:ctor(scene)
 end
 
 function LoginCtr:reqRegister(data)
-	g_NetManager.getInstance():getSender():sendLogin(data)
-end
-
-function LoginCtr:reqLogin(data)
 	g_NetManager.getInstance():getSender():sendRegister(data)
 end
 
-function LoginCtr:onLoginRps(data)
+function LoginCtr:reqLogin(data)
+	g_NetManager.getInstance():getSender():sendLogin(data)
+end
 
+function LoginCtr:onLoginRps(data)
+	local result = getNumFromTable(data,"error",-1)
+
+	if result == 0 then
+		
+	elseif result == -1 then
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error1")):show()
+	elseif result == -2 then
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error2")):show()
+	end
 end
 
 function LoginCtr:onRegisterRps(data)

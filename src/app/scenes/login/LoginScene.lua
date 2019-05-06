@@ -48,7 +48,7 @@ function LoginScene:init()
 
     self:showView(VIEW_TYPE.NONE)
 
-    self.m_btnLogin:addClickEventListener(function()
+	self.m_btnLogin:addClickEventListener(function()
         self:showView(VIEW_TYPE.LOGIN)
     end)
 

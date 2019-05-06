@@ -26,6 +26,8 @@ for k, v in pairs(funs) do
     Static[k] = v
 end
 
+require("framework.scenes.ViewBaseEx")
+
 -- 自定义ID
 Static.g_CustomEvent = require("app.config.CustomEvent")
 Static.g_HttpCmd = require("app.net.HttpCmd")
@@ -46,6 +48,8 @@ Static.g_ArrayUtils = require("framework.utils.ArrayKit")
 Static.g_JsonUtil = require("framework.utils.JsonKit")
 Static.g_XmlUtil = require("framework.utils.XmlKit")
 Static.g_DictUtils = require("framework.io.DictUtils")
+
+Static.g_NoticePop = require("app.views.NoticePop")
 
 Static.g_NetManager = require("app.net.NetManager")
 
