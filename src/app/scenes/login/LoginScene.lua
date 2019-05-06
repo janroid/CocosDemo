@@ -80,7 +80,7 @@ function LoginScene:goLogin( )
 
 	local data = {name,pwd}
 	
-	self:doLogic(g_CustomEvent.LOGIN_LOGIN, data,1,2,3,4)
+	self:doLogic(g_CustomEvent.LOGIN_LOGIN, data)
 end
 
 function LoginScene:goRegister( )

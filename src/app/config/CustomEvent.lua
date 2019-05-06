@@ -15,6 +15,8 @@ local CustomEvent = {
     --  login
     LOGIN_REGISTER = getIndex(); -- 注册事件
     LOGIN_LOGIN = getIndex(); -- 登陆事件
+    LOGIN_RPS_LOGIN = getIndex(); -- 登陆回调
+    LOGIN_RPS_REGISTER = getIndex(); -- 注册回调
 }
 
 return CustomEvent

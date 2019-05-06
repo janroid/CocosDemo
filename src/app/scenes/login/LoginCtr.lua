@@ -11,6 +11,8 @@ local LoginCtr = class("LoginCtr",ViewCtr);
 LoginCtr.s_eventFuncMap =  {
 	[g_CustomEvent.LOGIN_REGISTER] = "reqRegister";
 	[g_CustomEvent.LOGIN_LOGIN] = "reqLogin";
+	[g_CustomEvent.LGOIN_RPS_LOGIN] = "onLoginRps";
+	[g_CustomEvent.LOGIN_RPS_REGISTER] = "onRegisterRps"
 }
 
 function LoginCtr:ctor(scene)
@@ -20,13 +22,19 @@ function LoginCtr:ctor(scene)
 end
 
 function LoginCtr:reqRegister(data)
-	Log.d("************************** ",data)
+	g_NetManager.getInstance():getSender():sendLogin(data)
 end
 
 function LoginCtr:reqLogin(data)
-	Log.d("************************** ",data)
-	local hallscene = require('app.scenes.hall.hallScene')
-	cc.Director:getInstance():replaceScene(hallscene:create())
+	g_NetManager.getInstance():getSender():sendRegister(data)
+end
+
+function LoginCtr:onLoginRps(data)
+
+end
+
+function LoginCtr:onRegisterRps(data)
+
 end
 
 function LoginCtr:onEnter()

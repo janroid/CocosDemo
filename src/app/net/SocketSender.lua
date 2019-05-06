@@ -9,4 +9,12 @@ function SocketSender:ctor()
     self.m_serverManager = ServerManager.new(self.m_receive)
 end
 
+function SocketSender:sendLogin(data)
+    self.m_serverManager:login(data)
+end
+
+function SocketSender:sendRegister(data)
+    self.m_serverManager:register(data)
+end
+
 return SocketSender

@@ -19,6 +19,13 @@ end
 ]]
 function DataCenter:registerUser(name,pwd)
     local userMap = g_DictUtils.getData(g_DataKey.CS_USER,{})
+
+    for k,v in ipairs(userMap) do
+        if v.ac_name == name then
+            return 
+        end
+    end
+
     local id = 1001
     if #userMap > 0 then
         id = userMap[#userMap].mid + 1
@@ -47,6 +54,17 @@ function DataCenter:registerUser(name,pwd)
     g_DictUtils.setData(g_DataKey.CS_USER, userMap)
 
     return newUser
+end
+
+function DataCenter:getUser(name,pwd)
+    local userMap = g_DictUtils.getData(g_DataKey.CS_USER, {})
+    for k,v in ipairs(userMap) do
+        if v.ac_name == name and v.ac_pwd == pwd then
+            return v
+        end
+    end
+
+    return 
 end
 
 
