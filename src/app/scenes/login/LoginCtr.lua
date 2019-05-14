@@ -16,9 +16,7 @@ LoginCtr.s_eventFuncMap =  {
 }
 
 function LoginCtr:ctor(scene)
-	ViewCtr.ctor(self, scene);
-
-	
+	ViewCtr.ctor(self, scene);	
 end
 
 function LoginCtr:reqRegister(data)
@@ -33,7 +31,7 @@ function LoginCtr:onLoginRps(data)
 	local result = getNumFromTable(data,"error",-1)
 
 	if result == 0 then
-		
+
 	elseif result == -1 then
 		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error1")):show()
 	elseif result == -2 then

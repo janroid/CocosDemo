@@ -25,6 +25,8 @@ function LoginScene:ctor()
 	ViewScene.ctor(self)
 	self:bindCtr(LoginCtr)
 
+	local m = cc.Node:create()
+
 	self:init()
 end
 
@@ -121,7 +123,7 @@ function LoginScene:onExit()
 		该方法可以理解为公司引擎：pause方法
 	]]
 end
-
+ 
 
 function LoginScene:onCleanup()
 	ViewScene.onCleanup(self)
