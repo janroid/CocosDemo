@@ -247,6 +247,10 @@ void CreatorReader::setup()
 
 static std::map<std::string, bool> s_checkSpriteFrameFixed;
 
+void CreatorReader::resetSpriteFrames() {
+	s_checkSpriteFrameFixed.clear();
+}
+
 void CreatorReader::setupSpriteFrames()
 {
     const void* buffer = _data.getBytes();

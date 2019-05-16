@@ -87,6 +87,8 @@ public:
      */
     void setup();
 
+	static void resetSpriteFrames();
+
 protected:
     CreatorReader();
     ~CreatorReader();

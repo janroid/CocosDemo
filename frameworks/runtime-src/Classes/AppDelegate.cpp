@@ -37,6 +37,7 @@ THE SOFTWARE.
 #include "lua_byte_data_manual.hpp"
 #include "sqlite3/lsqlite3.h"
 //#include "CurlUtils.h"
+#include "CreatorReader.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -273,6 +274,7 @@ static int fix_restart_lua(lua_State * l) {
 	
 		auto writePath = FileUtils::getInstance()->getWritablePath();
 		
+		creator::CreatorReader::resetSpriteFrames();
 		Director::getInstance()->restart();
 		Director::getInstance()->mainLoop();
 		ScriptEngineManager::getInstance()->removeScriptEngine();//把原来的luaEngine销毁
