@@ -989,6 +989,10 @@ cocos2d::Label* CreatorReader::createLabel(const buffers::Label* labelBuffer) co
 			fontType = FontType_TTF;
 			fontName = VxNativeUtils::getDefaultFontName();
 		}
+		else
+		{
+			fontName = "";
+		}
 	}
     switch (fontType) {
         case buffers::FontType_TTF:
