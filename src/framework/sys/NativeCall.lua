@@ -1,14 +1,7 @@
-local NetManager = require("framework.net.NetManager")
 local NativeCall = {}
+local Socket = require("framework.net.Socket")
 
 function NativeCall.lcc_connectToServer(netSocketId,ip,port,protocol)
-	if XG_USE_FAKE_SERVER then
-
-		NativeCall.ccl_socketEvent(netSocketId,g_Event.SOCKET_EVENT_CONNECT_BEGIN)
-		NativeCall.ccl_socketEvent(netSocketId,g_Event.SOCKET_EVENT_CONNECT_COMPLETE)
-
-		return 
-	end
     projectx.lcc_connectToServer(netSocketId,ip,port,protocol or 0)
 end
 
@@ -18,29 +11,28 @@ end
 
 
 function NativeCall.ccl_socketEvent(netSocketId,eventId,arg)
-    print("ccl_socketEvent="..netSocketId.." eventId="..eventId)
-    NetManager.getInstance():onNetEventHandler(netSocketId,eventId,arg)
+	print("ccl_socketEvent="..netSocketId.." eventId="..eventId)
+	
+	Socket._eventHandler(netSocketId, eventId, arg)
     return 1
 end
 
 
-function NativeCall.lcc_sendMsgToServer(netSocketId,msgType,msgData)
-
+function NativeCall.lcc_sendMsgToServer(netSocketId,msgType,bodyBuf, size)
 	if XG_USE_FAKE_SERVER then
-		NetSys:onEvent(msgType,msgData)
+		NetSys:onEvent(msgType,bodyBuf, size)
 		return 
 	end
 	print("发送消息")
-	projectx.lcc_sendMsgToServer(netSocketId,msgType,msgData:getData(),msgData:getLength())
+	projectx.lcc_sendMsgToServer(netSocketId,msgType,bodyBuf,size)
 end
 
 
 function NativeCall.ccl_recvMsgFromServer(netSocketId,msgType,msgSize,msgData)
-	print("接收消息")
-	print("start lcc_recvMsgFromServer =xxx"..netSocketId)
-	NetManager.getInstance():parseMsg(netSocketId,msgType,msgData,msgSize)
-    print("end lcc_recvMsgFromServer =xxx"..netSocketId)
-	--projectx.lcc_sendMsgToServer(netSocketId,msgType,msgData)
+	print("NativeCall.ccl_recvMsgFromServer --> 接收消息")
+	print("NativeCall.ccl_recvMsgFromServer --> socketId = "..netSocketId .. ", msgType = " .. msgType)
+	
+	Socket._recvMsg(netSocketId, msgType, msgSize, msgData)
 end
 
 

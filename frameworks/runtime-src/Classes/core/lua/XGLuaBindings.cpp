@@ -491,7 +491,7 @@ extern "C" {
 		{
 			VxNetManager::getInstance()->sendMsgToServer(nNetSocketId, nMsgType, pMsgData, nMsgSize);
 
-			printf("lcc_sendMsgToServer %d,%d \n", nNetSocketId);
+			printf("lcc_sendMsgToServer %d,%d \n", nNetSocketId,nMsgSize);
 		}
 
 		return 1;

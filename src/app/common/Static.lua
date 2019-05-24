@@ -34,6 +34,12 @@ Static.g_HttpCmd = require("app.net.HttpCmd")
 Static.g_SocketCmd = require("app.net.SocketCmd")
 Static.g_DataKey = require("app.config.DataKey")
 
+Static.NativeCall = require("framework.sys.NativeCall")
+Static.NativeEvent = require("framework.sys.NativeEvent")
+local JSProtobuf = require("framework.net.JSProtobuf")
+Static.g_Protobuf = JSProtobuf.new()
+Static.g_GamePb = require("app/net/pb/GamePb")
+
 Static.Log = require("framework.utils.Log")
 Static.g_Base64 = require("framework.utils.Base64")
 Static.g_BitUtil = require("framework.utils.Bit")

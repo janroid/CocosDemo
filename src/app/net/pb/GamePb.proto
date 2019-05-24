@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package msg;
+
+message UserLogin
+{
+    required int32 Mtype = 1;       // 类型，1：注册，2：登陆
+    required string Name = 2;       // 用户名
+    required string Password = 3;   // 密码
+}
+
+message LoginResult
+{
+    required int32 Result = 1;
+    required string Name = 2;
+}

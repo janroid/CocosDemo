@@ -5,11 +5,7 @@ function SocketReceive:ctor()
 end
 
 function SocketReceive:receive(cmd, data)
-    if cmd == g_SocketCmd.NET_LOGIN then
-        self:receiveLogin(data)
-    elseif cmd == g_SocketCmd.NET_REGISTER then
-        self:receiveRegister(data)
-    end
+    
 end
 
 

@@ -50,8 +50,9 @@ function LoginScene:init()
 
     self:showView(VIEW_TYPE.NONE)
 
+	self.m_count = 0
 	self.m_btnLogin:addClickEventListener(function()
-        self:showView(VIEW_TYPE.LOGIN)
+		self:showView(VIEW_TYPE.LOGIN)	
     end)
 
     self.m_goLogin:addClickEventListener(function()
@@ -105,7 +106,7 @@ function LoginScene:showView(mtype)
 
     self.m_bgLogin:setVisible(mtype~=VIEW_TYPE.NONE)
     self.m_viewLogin:setVisible(mtype==VIEW_TYPE.LOGIN)
-    self.m_viewRegister:setVisible(mtype==VIEW_TYPE.REGISTER)
+	self.m_viewRegister:setVisible(mtype==VIEW_TYPE.REGISTER)
 end
 
 

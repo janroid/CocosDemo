@@ -24,7 +24,12 @@ function LoginCtr:reqRegister(data)
 end
 
 function LoginCtr:reqLogin(data)
-	g_NetManager.getInstance():getSender():sendLogin(data)
+	local param = {
+		Mtype = 2,
+		Name = data[1],
+		Password = data[2]
+	}
+	g_NetManager.getInstance():sendSocketMsg(g_GamePb.method.UserLogin, param)
 end
 
 function LoginCtr:onLoginRps(data)
@@ -44,14 +49,7 @@ function LoginCtr:onRegisterRps(data)
 end
 
 function LoginCtr:onEnter()
-	-- do something
-	--[[
-		场景被加载显示后被调用，包括第一次加载场景和通过popScene加载场景
-		这个方法可以可以放置相关和场景显示相关变量的初始化代码
-		该方法可以理解为公司引擎：resume方法
-		不用可删除
-	]]
-	
+	g_NetManager.getInstance():openGameSocket()
 end
 
 

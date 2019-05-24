@@ -88,7 +88,7 @@ VxNetClient::VxNetClient(int nNetSocketId, const char* addr, unsigned port, int 
 	
 	m_pProtocol->start(this);
 
-	bool bUseTLS = nProtocol == VX_NET_PROTOCOL_MATCH;
+	bool bUseTLS = false; //nProtocol == VX_NET_PROTOCOL_MATCH;
 	m_socket = new VxSocketClient(addr, port, bUseTLS);
 	m_socket->setInternalBufferSize(VXSOCKETCLIENT_INTERNAL_BUFFER_SIZE);
 	m_socket->registerEventCb(VxNetClient::_netClientEventCb, this);

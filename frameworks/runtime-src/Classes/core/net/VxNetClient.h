@@ -24,7 +24,7 @@ public:
 class VxNetClient //: public VxMsgModule
 {
 public:
-	VxNetClient(int nNetSocketId,const char* addr, unsigned port,int nProtocol= VX_NET_PROTOCOL_IPOKER);
+	VxNetClient(int nNetSocketId,const char* addr, unsigned port,int nProtocol= VX_NET_PROTOCOL_MATCH);
 	~VxNetClient();
 	void connect();
 	void disconnect();

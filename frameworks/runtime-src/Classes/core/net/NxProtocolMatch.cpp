@@ -10,7 +10,7 @@
 
 #include "XGCCallLuaManager.h"
 
-#define NXPROTOCOL_MATCH_FRMAE_METAHEADER_SIZE					7
+#define NXPROTOCOL_MATCH_FRMAE_METAHEADER_SIZE					4
 
 
 /*
@@ -20,10 +20,8 @@ MsgMatchHeader
 class MsgMatchHeader
 {
 public:
-	MsgMatchHeader(int nLen=0, char nType=0)
+	MsgMatchHeader(int nLen=0, int nType=0)
 	{
-		 m_sMagic[0] = 'V';
-		 m_sMagic[1] = '1';
 		 m_nLen = nLen;
 		 m_nType = nType;
 		 packToBuffData();
@@ -36,7 +34,7 @@ public:
 
 	enum
 	{
-		MATCH_HEAD_LENGTH = 7,
+		MATCH_HEAD_LENGTH = 4,
 	};
 
 	void packToBuffData();
@@ -45,47 +43,35 @@ public:
 
 public:
 
-	char  m_sMagic[2];
-	unsigned int m_nLen;
-	char m_nType;
+	unsigned int m_nLen;  // 数据长度
+	unsigned int m_nType;  // 消息命令字，leaf server定义
 
 
 	char m_pBufData[MATCH_HEAD_LENGTH];
 };
 
-
+// 组装发送数据头
 void MsgMatchHeader::packToBuffData()
 {
-
+	unsigned short int tmp;
+	unsigned int len = m_nLen + 2; // 数据长度 + ID长度
+	tmp = VxConvert::NF_HTONS(len);
+	memcpy(m_pBufData, &tmp, sizeof(short int));
 	
-
-	memcpy( m_pBufData, m_sMagic, 2);
-
-
-	unsigned  int len = m_nLen;
-	len = VxConvert::NF_HTONL(len);
-	memcpy(m_pBufData + 2  , &len, 4);
-	
-
-	m_pBufData[6] = m_nType ;
+	tmp = VxConvert::NF_HTONS(m_nType);
+	memcpy(m_pBufData + 2, &tmp, sizeof(short int));
 
 }
 
-
+// 解析发送数据头
 void MsgMatchHeader::parseBuffData()
 {
+	unsigned short int tmp = 0;
+	memcpy(&tmp, m_pBufData, sizeof(short int));
+	m_nLen = VxConvert::NF_NTOHS(tmp) - 2;
 
-	unsigned short int temp = 0;
-	
-	
-	memcpy(m_sMagic, m_pBufData+0, 2);
-	
-
-	unsigned  int len = 0;
-	memcpy(&len, m_pBufData + 2, 4);
-	m_nLen = VxConvert::NF_NTOHL(len);
-
-	m_nType = m_pBufData[6];
+	memcpy(&tmp, m_pBufData + 2, sizeof(short int));
+	m_nType = VxConvert::NF_NTOHS(tmp);
 
 }
 
@@ -117,29 +103,23 @@ void NxProtocolMatch::initBuffHeadData()
 
 VxMsgNetSendStream*  NxProtocolMatch::createStream(int nMsgType, int nMsgSize, const char* pMsgData)
 {
-	
-
 	VxMsgNetSendStream* pMsg = NULL;
 	VxMemStream* pStream = NULL;
 	do
 	{
 
-		VxMemStream* pStream = new VxMemStream(nMsgSize + sizeof(MsgMatchHeader), false);
+		VxMemStream* pStream = new VxMemStream(nMsgSize + MsgMatchHeader::MATCH_HEAD_LENGTH, false);//sizeof(MsgMatchHeader), false);
 		VxMsgNetSendStream* pMsg = VX_NEW_MSG(VxMsgNetSendStream)(pStream);//new VxMsgNetSendStream(pStream);//
 		pStream->release();
-
-
 
 		if (!pStream || !pMsg)
 		{
 			break;
 		}
 
-		
-		MsgMatchHeader sMsgHeader(nMsgSize+ MsgMatchHeader::MATCH_HEAD_LENGTH, nMsgType);
+		MsgMatchHeader sMsgHeader(nMsgSize, nMsgType);
 
 		pStream->write(sMsgHeader.m_pBufData, MsgMatchHeader::MATCH_HEAD_LENGTH);
-
 		pStream->write((char*)pMsgData, nMsgSize);
 		pStream->seek(0);
 		return pMsg;
@@ -161,7 +141,7 @@ int NxProtocolMatch::plParser(VxString* pRecvData)
 	bool bplParserFrameFlag = false;
 	while (0 < nBufferSize)
 	{
-		if (NXPROTOCOL_MATCH_FRMAE_METAHEADER_SIZE > m_nFrameMetaHeaderSize)
+		if (NXPROTOCOL_MATCH_FRMAE_METAHEADER_SIZE > m_nFrameMetaHeaderSize) // 第一次读取头数据
 		{
 			nOnceSize = min(nBufferSize, NXPROTOCOL_MATCH_FRMAE_METAHEADER_SIZE - m_nFrameMetaHeaderSize);
 			//memcpy(((char*)&m_nFrameTotalSize) + m_nFrameMetaHeaderSize, pBuffer, nOnceSize);
@@ -208,46 +188,33 @@ void NxProtocolMatch::plParserFrame()
 	VxCacheIOStream* pStream = (VxCacheIOStream*)m_client->m_socket->getRecvBuffer();
 	pStream->flush();
 
-	//VXASSERT(m_nFrameTotalSize + NXPROTOCOL_FRMAE_METAHEADER_SIZE <= pStream->readCapacity(), "");
+	MsgMatchHeader sMsgHeader;
+	unsigned short int temp;
+	unsigned int nPackageSize = 0;
+	unsigned int bodyLen = 0;
 
-	static int sTotalCount = 0;
-	++sTotalCount;
+	pStream->read((char*)sMsgHeader.m_pBufData, MsgMatchHeader::MATCH_HEAD_LENGTH);
+	sMsgHeader.parseBuffData();
 
+	bodyLen = sMsgHeader.m_nLen;
 
-	//VXASSERT(m_nFrameTotalSize == sProtocolHeader.m_nFrameSize, "m_nFrameTotalSize = %d, sProtocolHeader.m_nFrameSize = %d", m_nFrameTotalSize, sProtocolHeader.m_nFrameSize);
-	//for (int i = 0; i < sProtocolHeader.m_nMsgCount; ++i)
+	VxMemIOStream* pReadStream = pStream->getReadBuffer();
 
+	if (bodyLen > pReadStream->capacity())
 	{
-		MsgMatchHeader sMsgHeader;
-		unsigned short int temp;
-		unsigned int nPackageSize = 0;
-		unsigned int bodyLen = 0;
+		VxLocalString sLocalBuffer(bodyLen);
+		pStream->read(sLocalBuffer.getString(), bodyLen);
 
-		pStream->read((char*)sMsgHeader.m_pBufData, MsgMatchHeader::MATCH_HEAD_LENGTH);
-		sMsgHeader.parseBuffData();
-
-		bodyLen = sMsgHeader.m_nLen - MsgMatchHeader::MATCH_HEAD_LENGTH;
-
-		VxMemIOStream* pReadStream = pStream->getReadBuffer();
-
-		if (bodyLen > pReadStream->capacity())
+		XGCCallLuaManager::getInstance()->recvMsg(m_client->m_nNetSocketId, sMsgHeader.m_nType, bodyLen, sLocalBuffer.getString());
+	}
+	else
+	{
+		if (bodyLen > pReadStream->readBlockBufferSize())
 		{
-			VxLocalString sLocalBuffer(bodyLen);
-			pStream->read(sLocalBuffer.getString(), bodyLen);
-
-			XGCCallLuaManager::getInstance()->recvMsg(m_client->m_nNetSocketId, sMsgHeader.m_nType, bodyLen, sLocalBuffer.getString());
+			pStream->fillReadBuffer();
 		}
-		else
-		{
-			if (bodyLen > pReadStream->readBlockBufferSize())
-			{
-				pStream->fillReadBuffer();
-			}
-			VxString sStringBuffer = pReadStream->readBlockBuffer(bodyLen);
-			XGCCallLuaManager::getInstance()->recvMsg(m_client->m_nNetSocketId, sMsgHeader.m_nType, bodyLen, sStringBuffer.m_pString);
-		}
-
-
+		VxString sStringBuffer = pReadStream->readBlockBuffer(bodyLen);
+		XGCCallLuaManager::getInstance()->recvMsg(m_client->m_nNetSocketId, sMsgHeader.m_nType, bodyLen, sStringBuffer.m_pString);
 	}
 
 }

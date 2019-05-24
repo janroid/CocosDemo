@@ -1,11 +1,8 @@
 local NetManager = class("NetManager")
-
-local SocketSender = import("SocketSender")
-local HttpReceive = import("HttpReceive")
+local GameSocket = import("GameSocket")
 
 function NetManager:ctor( )
-    self.m_socketSender = SocketSender.new()
-
+    self.m_gameSocket = GameSocket.new()
 end
 
 function NetManager:getInstance( )
@@ -16,19 +13,25 @@ function NetManager:getInstance( )
     return NetManager.s_instance
 end
 
-function NetManager:getSender( )
-    return self.m_socketSender
-end
-
-function NetManager:postUrl(cmd, param, obj, func)
-    if not cmd then
-        Log.e("NetManager:postUrl - error: cmd is null!")
-
-        return
+function NetManager:getGameSocket( )
+    if not self.m_gameSocket then
+        self.m_gameSocket.new()
     end
 
-    self.m_httpReceive:receive(cmd,obj,func)
+    return self.m_gameSocket
 end
+
+function NetManager:openGameSocket( )
+    local ip = "127.0.0.1"
+    local port = 3563
+
+    self.m_gameSocket:connect(ip,port)
+end
+
+function NetManager:sendSocketMsg(cmd, data)
+    self.m_gameSocket:sendMsg(cmd, data)
+end
+
 
 
 return NetManager
