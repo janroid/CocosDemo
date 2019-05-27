@@ -81,6 +81,22 @@ function LoginScene:goLogin( )
 	local name = self.m_lgName:getText()
 	local pwd = self.m_lgPwd:getText()
 
+	if not name or not pwd 
+		or string.len(g_StringLib.trim(name)) < 1
+		or string.len(g_StringLib.trim(pwd)) < 1 then
+		self:showTips(GameString.get("str_login_error1"))
+
+		return
+	end
+
+	if string.find(name, " ") ~= nil 
+		or string.find(pwd, " ") ~= nil then
+
+		self:showTips(GameString.get("str_login_error4"))
+
+		return
+	end
+
 	local data = {name,pwd}
 	
 	self:doLogic(g_CustomEvent.LOGIN_LOGIN, data)
@@ -91,7 +107,45 @@ function LoginScene:goRegister( )
 	local pwd = self.m_rgPwd:getText()
 	local pwds = self.m_rgAgain:getText()
 
-	local data = {name,pwd,pwds}
+	if not name or not pwd or not pwds then
+		self:showTips(GameString.get("str_login_error1"))
+
+		return
+	end
+
+	if string.len(g_StringLib.trim(name)) < 1
+		or string.len(g_StringLib.trim(pwd)) < 1
+		or string.len(g_StringLib.trim(pwds)) < 1 then
+
+		self:showTips(GameString.get("str_login_error1"))
+
+		return
+	end
+
+	if string.find(name, " ") ~= nil 
+		or string.find(pwd, " ") ~= nil 
+		or string.find(pwds, " ") ~= nil then
+
+		self:showTips(GameString.get("str_login_error4"))
+
+		return
+	end
+
+	if pwd ~= pwds then
+		self:showTips(GameString.get("str_login_error3"))
+
+		return
+	end
+
+	if string.len(name) < 6 
+		or string.len(pwd) < 6 then
+
+		self:showTips(GameString.get("str_login_error5"))
+
+		return
+	end
+
+	local data = {name,pwd}
 	
 	self:doLogic(g_CustomEvent.LOGIN_REGISTER, data)
 end
@@ -133,6 +187,15 @@ function LoginScene:onCleanup()
 		资源销毁相关代码可以放置于该方法内。	
 	]]
 
+end
+
+function LoginScene:showTips(msg)
+	if not msg or string.len(msg) < 1 then
+		Log.d("LoginScene.showTips : msg is nil or too short")
+		return
+	end
+
+	g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), msg):show()
 end
 
 return LoginScene;

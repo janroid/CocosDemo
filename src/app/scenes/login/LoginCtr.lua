@@ -20,12 +20,15 @@ function LoginCtr:ctor(scene)
 end
 
 function LoginCtr:reqRegister(data)
-	g_NetManager.getInstance():getSender():sendRegister(data)
+	local param = {
+		Name = data[1],
+		Password = data[2]
+	}
+	g_NetManager.getInstance():sendSocketMsg(g_GamePb.method.UserRegister, param)
 end
 
 function LoginCtr:reqLogin(data)
 	local param = {
-		Mtype = 2,
 		Name = data[1],
 		Password = data[2]
 	}
@@ -33,13 +36,15 @@ function LoginCtr:reqLogin(data)
 end
 
 function LoginCtr:onLoginRps(data)
-	local result = getNumFromTable(data,"error",-1)
+	local result = getNumFromTable(data,"Result",g_ServerConfig.LOGIN_ERR.ERRLOGIN)
 
-	if result == 0 then
-
-	elseif result == -1 then
+	if result == g_ServerConfig.LOGIN_ERR.LGOINSUCC then
+		
+	elseif result == g_ServerConfig.LOGIN_ERR.ERRNULL then
 		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error1")):show()
-	elseif result == -2 then
+	elseif result == g_ServerConfig.LOGIN_ERR.ERRNOUSER then
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error2")):show()
+	elseif result == g_ServerConfig.LOGIN_ERR.ERRLOGIN then
 		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error2")):show()
 	end
 end

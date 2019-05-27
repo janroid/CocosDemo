@@ -33,6 +33,7 @@ Static.g_CustomEvent = require("app.config.CustomEvent")
 Static.g_HttpCmd = require("app.net.HttpCmd")
 Static.g_SocketCmd = require("app.net.SocketCmd")
 Static.g_DataKey = require("app.config.DataKey")
+Static.g_ServerConfig = require("app.config.ServerConfig")
 
 Static.NativeCall = require("framework.sys.NativeCall")
 Static.NativeEvent = require("framework.sys.NativeEvent")

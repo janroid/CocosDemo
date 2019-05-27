@@ -699,7 +699,7 @@ end
 --string.trim("[[[word[[[", "%[") => "word"
 --string.trim("   word   ") => "word"
 function string.trim(str, char)
-	if (char == '' or char == nil) then
+	if (char == '') or (char == nil) then
 		char = '%s'
 	end
 
