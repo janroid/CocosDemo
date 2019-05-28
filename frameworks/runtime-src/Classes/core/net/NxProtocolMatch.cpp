@@ -153,7 +153,7 @@ int NxProtocolMatch::plParser(VxString* pRecvData)
 			{
 
 				MsgMatchHeader sHeader(m_pBuffHeadData);
-				m_nFrameCurrSize = NXPROTOCOL_MATCH_FRMAE_METAHEADER_SIZE;
+				m_nFrameCurrSize = 0;
 				m_nFrameTotalSize = sHeader.m_nLen;
 			}
 		}
