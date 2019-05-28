@@ -5,14 +5,14 @@ function SocketReceive:ctor()
 end
 
 function SocketReceive:receive(cmd, data)
-    if cmd == g_GamePb.method.LoginResult then
+    if cmd == g_GamePb.method.RpsAuthor then
     	local mtype = getNumFromTable(data, "Type", g_ServerConfig.LOGIN_TYPE.NONE)
     	if mtype == g_ServerConfig.LOGIN_TYPE.LOGIN then
     		self:receiveLogin(data)
     	elseif mtype == g_ServerConfig.LOGIN_TYPE.REGISTER then
     		self:receiveRegister(data)
     	end
-	elseif cmd == g_GamePb.method.GetUserInfo then
+	elseif cmd == g_GamePb.method.RpsUserInfo then
 
 	else
 		Log.d("SocketReceive.receive - cmd =",cmd, ", not received !")

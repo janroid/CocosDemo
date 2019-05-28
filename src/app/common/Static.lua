@@ -34,6 +34,7 @@ Static.g_HttpCmd = require("app.net.HttpCmd")
 Static.g_SocketCmd = require("app.net.SocketCmd")
 Static.g_DataKey = require("app.config.DataKey")
 Static.g_ServerConfig = require("app.config.ServerConfig")
+Static.g_ClientConfig = require("app.config.ClientConfig")
 
 Static.NativeCall = require("framework.sys.NativeCall")
 Static.NativeEvent = require("framework.sys.NativeEvent")
@@ -63,6 +64,8 @@ Static.g_NetManager = require("app.net.NetManager")
 local EventDispatcher = require("framework.expand.EventDispatcher")
 Static.g_EventDispatcher = EventDispatcher.getInstance()
 Static.g_PopupManager = require("app.common.popup.PopupManager")
+
+Static.g_AccountInfo = require("app.model.data.AccountInfo")
 
 
 

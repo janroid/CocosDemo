@@ -20,6 +20,7 @@ function GameSocket:receiveMsg(cmd, msgSize, msgData)
 end
 
 function GameSocket:sendMsg(cmd, data)
+    Log.d("GameSocket:sendMsg - data = ", data, ", cmd = ",cmd)
     local bodyBuf = g_Protobuf:encode(cmd, data)
 	local size = bodyBuf and string.len(bodyBuf) or 0
 

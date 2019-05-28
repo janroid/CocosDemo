@@ -30,7 +30,12 @@ function HallScene:init()
 
 
 	self.m_btnQuick:addClickEventListener(function()
-		
+		local id = g_AccountInfo.getInstance():getUid()
+		local param = {
+			Uid = id,
+			Fields = 0
+		}
+		g_NetManager.getInstance():sendSocketMsg(g_GamePb.method.ReqUserInfo, param)
 	end)
 
 end

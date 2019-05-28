@@ -24,7 +24,7 @@ function LoginCtr:reqRegister(data)
 		Name = data[1],
 		Password = data[2]
 	}
-	g_NetManager.getInstance():sendSocketMsg(g_GamePb.method.UserRegister, param)
+	g_NetManager.getInstance():sendSocketMsg(g_GamePb.method.ReqRegister, param)
 end
 
 function LoginCtr:reqLogin(data)
@@ -32,25 +32,50 @@ function LoginCtr:reqLogin(data)
 		Name = data[1],
 		Password = data[2]
 	}
-	g_NetManager.getInstance():sendSocketMsg(g_GamePb.method.UserLogin, param)
+	g_NetManager.getInstance():sendSocketMsg(g_GamePb.method.ReqLogin, param)
 end
 
 function LoginCtr:onLoginRps(data)
 	local result = getNumFromTable(data,"Result",g_ServerConfig.LOGIN_ERR.ERRLOGIN)
 
 	if result == g_ServerConfig.LOGIN_ERR.LGOINSUCC then
-		
-	elseif result == g_ServerConfig.LOGIN_ERR.ERRNULL then
-		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error1")):show()
-	elseif result == g_ServerConfig.LOGIN_ERR.ERRNOUSER then
-		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error2")):show()
-	elseif result == g_ServerConfig.LOGIN_ERR.ERRLOGIN then
-		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error2")):show()
+		g_AccountInfo.getInstance():init(data)
+		self:toHall()
+	else
+		self:processErr(result)
 	end
 end
 
 function LoginCtr:onRegisterRps(data)
+	local result = getNumFromTable(data,"Result",g_ServerConfig.LOGIN_ERR.ERRLOGIN)
+	if result == g_ServerConfig.LOGIN_ERR.REGISTERSUCC then
+		g_AccountInfo.getInstance():init(data)
 
+		self:toHall()
+	else
+		self:processErr(result)
+	end
+end
+
+function LoginCtr:processErr(err)
+	if err == g_ServerConfig.LOGIN_ERR.ERRNULL then
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error1")):show()
+	elseif err == g_ServerConfig.LOGIN_ERR.ERRNOUSER
+		or err == g_ServerConfig.LOGIN_ERR.ERRLOGIN then
+
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error2")):show()
+	elseif err == g_ServerConfig.LOGIN_ERR.ERRHAVEUSER then
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error3")):show()
+	elseif err == g_ServerConfig.LOGIN_ERR.ERRFORBID then
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error6")):show()
+	elseif err == g_ServerConfig.LOGIN_ERR.ERRSHORT then
+		g_NoticePop.getInstance():setContent(GameString.get("str_noitce_title1"), GameString.get("str_login_error5")):show()
+	end
+end
+
+function LoginCtr:toHall()
+	local hallScene = require("app.scenes.hall.HallScene")
+	cc.Director:getInstance():replaceScene(hallScene:create())
 end
 
 function LoginCtr:onEnter()

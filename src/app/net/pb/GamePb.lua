@@ -3,18 +3,19 @@ local GamePb = {}
 GamePb.S_PATH = "app/net/pb/GamePb.pb"
 
 GamePb.method = {
-    UserLogin = 0,
-	UserRegister = 1, 
-	LoginResult = 2,
-	GetUserInfo = 3
-
+	ReqLogin = 0;
+	ReqRegister = 1;
+	RpsAuthor = 2;
+	RpsUserInfo = 3;
+	ReqUserInfo = 4;
 }
 
 GamePb.config = {
-    [GamePb.method.UserLogin] = {method = "gamepb.UserLogin"},
-    [GamePb.method.UserRegister] = {method = "gamepb.UserRegister"},
-    [GamePb.method.LoginResult] = {method = "gamepb.LoginResult"},
-    [GamePb.method.GetUserInfo] = {method = "gamepb.GetUserInfo"},
+	[GamePb.method.ReqLogin] = {method = "gamepb.ReqLogin"};
+	[GamePb.method.ReqRegister] = {method = "gamepb.ReqRegister"};
+	[GamePb.method.RpsAuthor] = {method = "gamepb.RpsAuthor"};
+	[GamePb.method.RpsUserInfo] = {method = "gamepb.RpsUserInfo"};
+	[GamePb.method.ReqUserInfo] = {method = "gamepb.ReqUserInfo"};
 }
 
 g_Protobuf:registerFile(GamePb)

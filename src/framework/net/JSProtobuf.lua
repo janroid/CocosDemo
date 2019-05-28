@@ -57,7 +57,16 @@ function JSProtobuf:decode(name, buf)
 
     local pbMethod = self.m_configMap[name].method
 
-    return protobuf.decode(pbMethod,buf)
+    local pbTable = protobuf.decode(pbMethod,buf)
+
+    local tmp = {}
+    for k,v in pairs(pbTable) do
+        local mtype = type(v)
+
+        tmp[k] = v
+    end
+
+    return tmp
 end
 
 

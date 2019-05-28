@@ -2,19 +2,19 @@ syntax = "proto2";
 
 package gamepb;
 
-message UserLogin
+message ReqLogin
 {
     required string Name = 1;       // 用户名
     required string Password = 2;   // 密码
 }
 
-message UserRegister
+message ReqRegister
 {
     required string Name = 1;       // 用户名
     required string Password = 2;   // 密码
 }
 
-message LoginResult
+message RpsAuthor
 {
     required int32 Result = 1;
     required int32 Type = 2;  // 数据类型，1：登陆，2：注册
@@ -25,7 +25,13 @@ message LoginResult
     optional string Name = 7;  
 }
 
-message GetUserInfo
+message ReqUserInfo
+{
+    required int64 Uid = 1;
+    required int32 Fields = 2;
+}
+
+message RpsUserInfo
 {
     required int64 Uid = 1;
     required int64 Money = 2;

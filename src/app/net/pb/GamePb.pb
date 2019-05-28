@@ -1,21 +1,24 @@
 
-Þ
-GamePb.protogamepb"+
-	UserLogin
+†
+GamePb.protogamepb"*
+ReqLogin
 Name (	
-Password (	".
-UserRegister
+Password (	"-
+ReqRegister
 Name (	
-Password (	"p
-LoginResult
+Password (	"n
+	RpsAuthor
 Result (
 Type (
 Uid (
 Money (
 Icon (
 Exp (
-Name (	"ö
-GetUserInfo
+Name (	"*
+ReqUserInfo
+Uid (
+Fields ("ö
+RpsUserInfo
 Uid (
 Money (
 Exp (

@@ -17,6 +17,9 @@ local CustomEvent = {
     LOGIN_LOGIN = getIndex(); -- 登陆事件
     LOGIN_RPS_LOGIN = getIndex(); -- 登陆回调
     LOGIN_RPS_REGISTER = getIndex(); -- 注册回调
+
+    -- userinfo
+    USERINFO_RPS = getIndex(); -- 刷新玩家数据
 }
 
 return CustomEvent

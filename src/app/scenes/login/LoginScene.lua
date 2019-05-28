@@ -137,8 +137,8 @@ function LoginScene:goRegister( )
 		return
 	end
 
-	if string.len(name) < 6 
-		or string.len(pwd) < 6 then
+	if string.len(name) < g_ClientConfig.S_NAME_LEN 
+		or string.len(pwd) < g_ClientConfig.S_NAME_LEN then
 
 		self:showTips(GameString.get("str_login_error5"))
 
