@@ -20,6 +20,7 @@ local CustomEvent = {
 
     -- userinfo
     USERINFO_RPS = getIndex(); -- 刷新玩家数据
+    UPDATE_USERINFO = getIndex();
 }
 
 return CustomEvent

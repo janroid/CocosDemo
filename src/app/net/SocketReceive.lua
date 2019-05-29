@@ -13,7 +13,7 @@ function SocketReceive:receive(cmd, data)
     		self:receiveRegister(data)
     	end
 	elseif cmd == g_GamePb.method.RpsUserInfo then
-
+		self:receiveUserInfo(data)
 	else
 		Log.d("SocketReceive.receive - cmd =",cmd, ", not received !")
 	end
@@ -26,6 +26,10 @@ end
 
 function SocketReceive:receiveRegister(data)
     g_EventDispatcher:dispatchEvent(g_CustomEvent.LOGIN_RPS_REGISTER, data)
+end
+
+function SocketReceive:receiveUserInfo(data)
+	g_EventDispatcher:dispatchEvent(g_CustomEvent.USERINFO_RPS, data)
 end
 
 
