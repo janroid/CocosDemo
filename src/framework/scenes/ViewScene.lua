@@ -96,7 +96,8 @@ end
 function ViewScene:loadLayout(viewLayout)
 	local root,animManager = g_NodeUtils:getRootNodeInCreator(viewLayout)
 	self.m_root = root
-    self:add(root)
+	self:add(root)
+	g_NodeUtils:initUIobj(root,self)
 
 	return animManager
 end

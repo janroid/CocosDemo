@@ -53,7 +53,8 @@ function PopupBase:loadLayout(viewLayout)
 	self.m_root = root
     self:add(root)
 	self:setVisible(false)
-	
+	g_NodeUtils:initUIobj(root,self)
+
 	self:initShade()
 	return animManager
 end

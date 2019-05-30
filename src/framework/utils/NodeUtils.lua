@@ -30,6 +30,45 @@ function NodeUtils:seekNodeByName(node,name)
     
 end
 
+--[[
+    @desc: 自动初始化获取UI对象，省去手动调用seekNodeByName()步骤
+           对UI布局有要求，ui控件命名必须加uixxx前缀,没有该前缀默认不初始化
+    time:2019-05-30 10:20:12
+    @return: table{ui对象}
+]]
+function NodeUtils:initUIobj(node,obj)
+    if node == nil then
+        return {}
+    end
+
+    local map = {}
+    self:loopTree(node,map)
+    
+    for k, v in pairs(map) do
+        local name = string.gsub(k, "ui", "m_")
+        obj[name] = v
+    end
+end
+
+function NodeUtils:loopTree(node,map)
+    local name = node:getName()
+    if string.find(name, "^ui") then
+        if map[name] then
+            Log.e("NodeUtils.initUIobj - 控件初始化错误，控件命名重复！", "name = ",name)
+        end
+
+        map[name] = node
+    end
+
+    local children = node:getChildren()
+
+    if children ~= nil then
+        for _,child in pairs(children) do
+            self:loopTree(child,map)  
+        end
+    end
+end
+
 function NodeUtils:getRootNodeInCreator(creatorName)
     local creatorReader = creator.CreatorReader:createWithFilename(creatorName)
 	creatorReader:setup()
