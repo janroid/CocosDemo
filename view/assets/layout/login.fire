@@ -274,7 +274,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_login",
+    "_name": "uibtnLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -448,7 +448,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bg_login",
+    "_name": "uibgLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -516,7 +516,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "view_login",
+    "_name": "uiviewLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 11
@@ -700,7 +700,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "lb_title",
+    "_name": "uitxTitle",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -803,7 +803,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tx_name",
+    "_name": "uitxName",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -872,7 +872,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tx_pwd",
+    "_name": "uitxPwd",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -941,7 +941,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ed_name",
+    "_name": "uilgName",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -1035,7 +1035,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ed_pwd",
+    "_name": "uilgPwd",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -1129,7 +1129,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_login",
+    "_name": "uigoLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -1191,7 +1191,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Label",
+    "_name": "uitxLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 27
@@ -1381,7 +1381,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_register",
+    "_name": "uibtnRegister",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -1440,7 +1440,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tx_register",
+    "_name": "uitxRegister",
     "_objFlags": 0,
     "_parent": {
       "__id__": 33
@@ -1625,7 +1625,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "view_register",
+    "_name": "uiviewRegister",
     "_objFlags": 0,
     "_parent": {
       "__id__": 11
@@ -1815,7 +1815,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "lb_title",
+    "_name": "uitxrTitle",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -1884,7 +1884,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "账号登陆",
+    "_N$string": "账号注册",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1918,7 +1918,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tx_name",
+    "_name": "uitxrName",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -1987,7 +1987,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tx_pwd",
+    "_name": "uitxrPwd",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -2056,7 +2056,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tx_agin",
+    "_name": "uitxrAgain",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -2125,7 +2125,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ed_name",
+    "_name": "uirgName",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -2219,7 +2219,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ed_pwd",
+    "_name": "uirgPwd",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -2313,7 +2313,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ed_agin",
+    "_name": "uirgAgain",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -2407,7 +2407,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_register",
+    "_name": "uigoRegister",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -2469,7 +2469,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Label",
+    "_name": "uitxReg",
     "_objFlags": 0,
     "_parent": {
       "__id__": 58
@@ -2659,7 +2659,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_login",
+    "_name": "uitoLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 39
@@ -2718,7 +2718,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "tx_login",
+    "_name": "uirxLogin",
     "_objFlags": 0,
     "_parent": {
       "__id__": 64
@@ -2932,7 +2932,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_close",
+    "_name": "uibtnClose",
     "_objFlags": 0,
     "_parent": {
       "__id__": 11

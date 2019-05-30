@@ -30,23 +30,25 @@ function LoginScene:ctor()
 	self:init()
 end
 
+function LoginScene:initText( )
+	self.m_txrTitle:setString(GameString.get("str_reg_title"))
+	self.m_txrName:setXMLData(GameString.get("str_reg_name"))
+	self.m_txrPwd:setXMLData(GameString.get("str_reg_pwd"))
+	self.m_txrAgain:setXMLData(GameString.get("str_reg_confirm"))
+	self.m_txReg:setString(GameString.get("str_login_reg"))
+	self.m_txReg:setString(GameString.get("str_login_reg"))
+	self.m_rxLogin:setXMLData(GameString.get("str_login_tologin"))
+
+	self.m_txRegister:setXMLData(GameString.get("str_login_tologin"))
+	self.m_txName:setXMLData(GameString.get("str_login_name"))
+	self.m_txPwd:setXMLData(GameString.get("str_login_pwd"))
+	self.m_txLogin:setString(GameString.get("str_login_login"))
+	self.m_txTitle:setString(GameString.get("str_login_title"))
+end
+
 function LoginScene:init()
 	self:loadLayout("creator/layout/login.ccreator")
-
-	self.m_btnLogin = self:seekNodeByName("btn_login")
-    self.m_bgLogin = self:seekNodeByName("bg_login")
-    self.m_viewLogin = self:seekNodeByName("view_login")
-    self.m_viewRegister = self:seekNodeByName("view_register")
-    self.m_lgName = self:seekNodeByName(self.m_viewLogin,"ed_name")
-    self.m_lgPwd = self:seekNodeByName(self.m_viewLogin,"ed_pwd")
-    self.m_rgName = self:seekNodeByName(self.m_viewRegister,"ed_name")
-    self.m_rgPwd = self:seekNodeByName(self.m_viewRegister,"ed_pwd")
-    self.m_rgAgain = self:seekNodeByName(self.m_viewRegister,"ed_agin")
-    self.m_goLogin = self:seekNodeByName(self.m_viewLogin,"btn_login")
-    self.m_toLogin = self:seekNodeByName(self.m_viewRegister,"btn_login")
-    self.m_btnRegister = self:seekNodeByName(self.m_viewLogin,"btn_register")
-    self.m_goRegister = self:seekNodeByName(self.m_viewRegister,"btn_register")
-	self.m_btnClose = self:seekNodeByName("btn_close")
+	self:initText()
 
     self:showView(VIEW_TYPE.NONE)
 

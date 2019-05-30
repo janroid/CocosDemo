@@ -21,7 +21,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "81VLs1ZnRM6LTpC0Z7U2mU",
+    "_id": "ce7892b6-9f13-4146-9887-5870a0f4d792",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -44,7 +44,8 @@
     "_localZOrder": 0,
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
-    "groupIndex": 0
+    "groupIndex": 0,
+    "autoReleaseAssets": false
   },
   {
     "__type__": "cc.Node",
@@ -273,7 +274,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_banker",
+    "_name": "uibtnBanker",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -447,7 +448,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_task",
+    "_name": "uibtnTask",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -621,7 +622,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_job",
+    "_name": "uibtnJob",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -795,7 +796,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_guid",
+    "_name": "uibtnGuid",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -969,7 +970,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_shop",
+    "_name": "uibtnShop",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -1143,7 +1144,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_primary",
+    "_name": "uibtnPrimary",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -1205,7 +1206,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "img_gold",
+    "_name": "uiimgGold",
     "_objFlags": 0,
     "_parent": {
       "__id__": 25
@@ -1428,7 +1429,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_punch",
+    "_name": "uibtnPunch",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -1602,7 +1603,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_reward",
+    "_name": "uibtnReward",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -1776,7 +1777,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_msg",
+    "_name": "uibtnMsg",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -1950,7 +1951,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_adv",
+    "_name": "uibtnAdv",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -2124,7 +2125,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_quick",
+    "_name": "uibtnQuick",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -2186,7 +2187,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "img_dice",
+    "_name": "uiimgDice",
     "_objFlags": 0,
     "_parent": {
       "__id__": 48
@@ -2409,7 +2410,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_rank",
+    "_name": "uibtnRank",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -2471,7 +2472,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "img_crown",
+    "_name": "uiimgCrown",
     "_objFlags": 0,
     "_parent": {
       "__id__": 55
@@ -2694,7 +2695,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_guide",
+    "_name": "uibtnGuide",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -2868,7 +2869,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bg_bank",
+    "_name": "uibgBank",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -3154,7 +3155,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_icon",
+    "_name": "uibtnIcon",
     "_objFlags": 0,
     "_parent": {
       "__id__": 72
@@ -3328,7 +3329,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "la_name",
+    "_name": "uitxName",
     "_objFlags": 0,
     "_parent": {
       "__id__": 72
@@ -3402,7 +3403,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "la_mid",
+    "_name": "uitxMid",
     "_objFlags": 0,
     "_parent": {
       "__id__": 72
@@ -3476,7 +3477,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "la_level",
+    "_name": "uitxLevel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 72
@@ -3550,7 +3551,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "pb_level",
+    "_name": "uildLevel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 72
@@ -3862,7 +3863,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_money",
+    "_name": "uibtnMoney",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -3924,7 +3925,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "la_money",
+    "_name": "uitxMoney",
     "_objFlags": 0,
     "_parent": {
       "__id__": 92
@@ -4221,7 +4222,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "btn_diamon",
+    "_name": "uibtnDiamon",
     "_objFlags": 0,
     "_parent": {
       "__id__": 4
@@ -4283,7 +4284,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "la_diamon",
+    "_name": "uitxDiamon",
     "_objFlags": 0,
     "_parent": {
       "__id__": 101

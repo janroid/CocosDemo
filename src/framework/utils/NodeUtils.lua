@@ -45,7 +45,7 @@ function NodeUtils:initUIobj(node,obj)
     self:loopTree(node,map)
     
     for k, v in pairs(map) do
-        local name = string.gsub(k, "ui", "m_")
+        local name = string.gsub(k, "ui", "m_",1)
         obj[name] = v
     end
 end

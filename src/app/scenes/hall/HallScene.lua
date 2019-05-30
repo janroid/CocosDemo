@@ -23,8 +23,6 @@ end
 function HallScene:init()
 	self:loadLayout("creator/layout/hall.ccreator")  
 
-	self:initScene()
-
 	self.m_btnQuick:addClickEventListener(function()
 		local id = g_AccountInfo.getInstance():getUid()
 		local param = {
@@ -36,36 +34,12 @@ function HallScene:init()
 
 	self.m_btnMsg:addClickEventListener(function()
 
-	
 	end)
 
-end
+	self.m_btnJob:addClickEventListener(function()
+		
+	end)
 
-function HallScene:initScene()
-	self.m_btnBanker = self:seekNodeByName("btn_banker")
-	self.m_btnTask = self:seekNodeByName("btn_task")
-	self.m_btnJob = self:seekNodeByName("btn_job")
-	self.m_btnGuid = self:seekNodeByName("btn_guid")
-	self.m_btnShop = self:seekNodeByName("btn_shop")
-	self.m_btnPrimary = self:seekNodeByName("btn_primary")
-	self.m_btnPunch = self:seekNodeByName("btn_punch")
-	self.m_btnReward = self:seekNodeByName("btn_reward")
-	self.m_btnMsg = self:seekNodeByName("btn_msg")
-	self.m_btnAdv = self:seekNodeByName("btn_adv")
-	self.m_btnQuick = self:seekNodeByName("btn_quick")
-	self.m_btnRank = self:seekNodeByName("btn_rank")
-	self.m_btnGuide = self:seekNodeByName("btn_guide")
-	self.m_btnIcon = self:seekNodeByName("btn_icon")
-	self.m_btnMoney = self:seekNodeByName("btn_money")
-	self.m_btnDiamon = self:seekNodeByName("btn_diamon")
-
-	self.m_txName = self:seekNodeByName("la_name")
-	self.m_txMid = self:seekNodeByName("la_mid")
-	self.m_txLevel = self:seekNodeByName("la_level")
-	self.m_txMoney = self:seekNodeByName("la_money")
-	self.m_txDiamon = self:seekNodeByName("la_diamon")
-
-	self.m_loadingBar = self:seekNodeByName("pb_level")
 end
 
 function HallScene:initInfo()
@@ -78,7 +52,7 @@ function HallScene:initInfo()
 	local lev, progress = u:getLevel()
 	self.m_txLevel:setString(lev)
 
-	self.m_loadingBar:setPercent(progress)
+	self.m_ldLevel:setPercent(progress)
 
 	self.m_btnIcon:loadTextureNormal(u:getIcon())
 end
