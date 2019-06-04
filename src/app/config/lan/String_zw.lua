@@ -17,7 +17,7 @@ local RUString = {
     str_login_login = "登录",
     str_login_toreg = "<b><color=#a72e97>去注册>></c></b>",
     str_reg_confirm = "<b><color=#4f2876>确认密码：</c></b>",
-    str_reg_name = "<b><color=#4f2876>密码：</c></b>",
+    str_reg_name = "<b><color=#4f2876>账号：</c></b>",
     str_reg_pwd = "<b><color=#4f2876>密码：</c></b>",
     str_login_reg = "注册",
     str_login_tologin = "<b><color=#a62c96>直接登录>></c></b>",

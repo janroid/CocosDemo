@@ -39,7 +39,7 @@ function LoginScene:initText( )
 	self.m_txReg:setString(GameString.get("str_login_reg"))
 	self.m_rxLogin:setXMLData(GameString.get("str_login_tologin"))
 
-	self.m_txRegister:setXMLData(GameString.get("str_login_tologin"))
+	self.m_txRegister:setXMLData(GameString.get("str_login_toreg"))
 	self.m_txName:setXMLData(GameString.get("str_login_name"))
 	self.m_txPwd:setXMLData(GameString.get("str_login_pwd"))
 	self.m_txLogin:setString(GameString.get("str_login_login"))

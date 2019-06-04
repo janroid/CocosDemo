@@ -22,6 +22,7 @@ function AccountInfo:ctor()
 	addProperty(self, "m_status", 0)   
 	self.m_exp = 0
 	self.m_icon = 5
+	self.m_progress = 0.01
 
 	self:init()
 
@@ -60,6 +61,7 @@ end
 function AccountInfo:setExp(exp)
 	self.m_exp = exp
 	self.m_level = nil
+	self.m_progress = nil
 end
 
 function AccountInfo:getExp()
@@ -68,26 +70,27 @@ end
 
 function AccountInfo:getLevel()
 	if self.m_level then
-		return self.m_level
+		return self.m_level, self.m_progress
 	end
 
 	if self.m_exp <= 0 then
-		return "LV：1", 0.1
+		return "LV：1", 1
 	end
 
 	for k,v in ipairs(g_ClientConfig.S_LEVELMAP) do
 		if self.m_exp < v then
 			self.m_level = "LV：" .. (k-1)
 
-			local p = (self.m_exp - (g_ClientConfig.S_LEVELMAP[k-1])) / v
+			self.m_progress = (self.m_exp - (g_ClientConfig.S_LEVELMAP[k-1])) / v * 100
 
-			return self.m_level, p
+			return self.m_level, self.m_progress
 		end
 	end
 
 	self.m_level = #g_ClientConfig.S_LEVELMAP
+	self.m_progress = 100
 
-	return self.m_level, 1
+	return self.m_level, self.m_progress
 end
 
 
