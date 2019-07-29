@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "bbe2acfc-2134-4327-867d-afb4584bb01c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_deco_stones6": {
+      "ver": "1.0.3",
+      "uuid": "69525dd8-f15f-4359-a81b-59c487b82156",
+      "rawTextureUuid": "bbe2acfc-2134-4327-867d-afb4584bb01c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1.5,
+      "offsetY": -0.5,
+      "trimX": 6,
+      "trimY": 1,
+      "width": 113,
+      "height": 127,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "15d47e6d-af79-423d-9191-6feeb0f3eeb9",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "BG_mountains_night2": {
+      "ver": "1.0.3",
+      "uuid": "2d50c517-6bca-4533-b06a-35b22d21d676",
+      "rawTextureUuid": "15d47e6d-af79-423d-9191-6feeb0f3eeb9",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1024,
+      "height": 1024,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

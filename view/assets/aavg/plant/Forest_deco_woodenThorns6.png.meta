@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "a2a22752-ce4f-4143-a536-fb510af70f63",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_deco_woodenThorns6": {
+      "ver": "1.0.3",
+      "uuid": "dd7689f0-57d3-459b-8e1d-22d8f4f486b3",
+      "rawTextureUuid": "a2a22752-ce4f-4143-a536-fb510af70f63",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 9,
+      "trimX": 2,
+      "trimY": 0,
+      "width": 124,
+      "height": 110,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

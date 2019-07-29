@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "a0bb5946-bb49-45a7-9481-32945c483050",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_terrain_dirt_grass(fall)4": {
+      "ver": "1.0.3",
+      "uuid": "f4e60ae9-6e02-4914-b613-3d2ca44aaf57",
+      "rawTextureUuid": "a0bb5946-bb49-45a7-9481-32945c483050",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 128,
+      "height": 128,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

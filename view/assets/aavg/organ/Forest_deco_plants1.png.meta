@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "566f8a38-e234-47c4-9fcc-d929e14c17a9",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_deco_plants1": {
+      "ver": "1.0.3",
+      "uuid": "79ab0637-cd4d-46d9-a008-b257297e7452",
+      "rawTextureUuid": "566f8a38-e234-47c4-9fcc-d929e14c17a9",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1,
+      "offsetY": -0.5,
+      "trimX": 0,
+      "trimY": 1,
+      "width": 126,
+      "height": 127,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

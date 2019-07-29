@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "729ef189-cafa-46f4-95f9-773a7c332395",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_deco_leaves(summer)2": {
+      "ver": "1.0.3",
+      "uuid": "83602281-cffc-482e-ba02-bc5729065e8b",
+      "rawTextureUuid": "729ef189-cafa-46f4-95f9-773a7c332395",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -0.5,
+      "trimX": 0,
+      "trimY": 1,
+      "width": 127,
+      "height": 127,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

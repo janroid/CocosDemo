@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "10a2501d-9cf8-447d-a4c5-889dad3e3d92",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_terrain_dirt_ice4": {
+      "ver": "1.0.3",
+      "uuid": "a4fc5d0d-57d1-4465-83c8-33d4a0b703be",
+      "rawTextureUuid": "10a2501d-9cf8-447d-a4c5-889dad3e3d92",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 128,
+      "height": 128,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

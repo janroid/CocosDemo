@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "612e8152-ad6c-4003-8f06-64497571e3bf",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "BG_mountains_sunset": {
+      "ver": "1.0.3",
+      "uuid": "25a8c3b2-c053-485c-a044-4b451db64a60",
+      "rawTextureUuid": "612e8152-ad6c-4003-8f06-64497571e3bf",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1024,
+      "height": 1024,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

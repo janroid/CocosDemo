@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "b3c06666-9e20-4a38-9a35-85b3c5c22ef1",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_terrain_slope_wood3": {
+      "ver": "1.0.3",
+      "uuid": "5913d779-ba01-4f55-8cf7-b91a0e59dfab",
+      "rawTextureUuid": "b3c06666-9e20-4a38-9a35-85b3c5c22ef1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 128,
+      "height": 128,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "5e024659-1e63-43b1-83b6-e2ce16e7aea6",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "BG_desert_noon2": {
+      "ver": "1.0.3",
+      "uuid": "40ce1f2a-b1ce-4705-9a99-ecccfb8a6b97",
+      "rawTextureUuid": "5e024659-1e63-43b1-83b6-e2ce16e7aea6",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1024,
+      "height": 1024,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

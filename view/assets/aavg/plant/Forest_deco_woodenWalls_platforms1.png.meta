@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "9dc2d9fe-169b-4a81-9226-9676076d86ae",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_deco_woodenWalls_platforms1": {
+      "ver": "1.0.3",
+      "uuid": "ad892503-1920-47ef-b39a-013f924f5daa",
+      "rawTextureUuid": "9dc2d9fe-169b-4a81-9226-9676076d86ae",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -1,
+      "trimX": 1,
+      "trimY": 2,
+      "width": 125,
+      "height": 126,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

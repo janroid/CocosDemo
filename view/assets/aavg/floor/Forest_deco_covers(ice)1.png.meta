@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "fb5458ad-af63-4cd7-b94b-b2873ce15b37",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_deco_covers(ice)1": {
+      "ver": "1.0.3",
+      "uuid": "b4bf7ebf-2413-447b-ab43-1984cedbd586",
+      "rawTextureUuid": "fb5458ad-af63-4cd7-b94b-b2873ce15b37",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 128,
+      "height": 128,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

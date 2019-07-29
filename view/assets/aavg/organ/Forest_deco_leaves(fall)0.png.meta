@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "56c2962f-c745-48b3-9215-65f2b3807788",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_deco_leaves(fall)0": {
+      "ver": "1.0.3",
+      "uuid": "60825ed3-bba6-4385-98c4-53f3e44ed7d9",
+      "rawTextureUuid": "56c2962f-c745-48b3-9215-65f2b3807788",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -0.5,
+      "trimX": 0,
+      "trimY": 1,
+      "width": 127,
+      "height": 127,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

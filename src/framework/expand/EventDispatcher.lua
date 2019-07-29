@@ -43,6 +43,14 @@ function EventDispatcher:register(event, obj, func, priority)
     end
 end
 
+function EventDispatcher:addListener(listener, priority)
+    if type(priority) ~= "userdata" then
+        self.m_eventDispatcher:addEventListenerWithFixedPriority(listener, priority or 1)
+    else
+        self.m_eventDispatcher:addEventListenerWithSceneGraphPriority(listener, priority)
+    end
+end
+
 function EventDispatcher:dispatchEvent(eventName, ... )
     local data = { ... }
     local event = cc.EventCustom:new(eventName)

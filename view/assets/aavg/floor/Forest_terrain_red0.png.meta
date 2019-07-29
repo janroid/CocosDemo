@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "81589f43-787e-4666-ab7a-cbcba9afe9dc",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Forest_terrain_red0": {
+      "ver": "1.0.3",
+      "uuid": "78336f99-22c9-428a-a18e-a9d01c04a66c",
+      "rawTextureUuid": "81589f43-787e-4666-ab7a-cbcba9afe9dc",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 128,
+      "height": 128,
+      "rawWidth": 128,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
